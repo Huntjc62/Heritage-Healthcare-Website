@@ -102,26 +102,3 @@ const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, {threshold:.08});
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-document.querySelectorAll('.location-contact-form').forEach(form => {
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const recipient = form.dataset.recipient;
-    const location = form.dataset.location;
-    const data = new FormData(form);
-    const subject = encodeURIComponent(`Care enquiry — ${location}`);
-    const body = encodeURIComponent(
-      `New care enquiry for ${location}\n\n` +
-      `Name: ${data.get('name') || ''}\n` +
-      `Phone: ${data.get('phone') || ''}\n` +
-      `Email: ${data.get('email') || ''}\n` +
-      `Person needing care: ${data.get('person') || ''}\n` +
-      `Postcode: ${data.get('postcode') || ''}\n` +
-      `Enquiry: ${data.get('care') || ''}\n\n` +
-      `Message:\n${data.get('message') || ''}`
-    );
-    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    const success = form.querySelector('.form-success');
-    if (success) success.style.display = 'block';
-  });
-});

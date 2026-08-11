@@ -121,18 +121,26 @@ The expertise/principle cards have been normalised to equal heights with consist
 Every location listed on the Locations page is now a real link to its corresponding dedicated location HTML page. The location directory cards and the location list/search links use explicit destinations and are protected from smooth-scroll interception.
 
 
-## Location pages V2 — local SEO architecture
-Every location now has its own content profile rather than sharing a generic template. Each page has:
-- a unique SEO title and meta description
-- a unique local proposition and hero
-- unique local service focus
-- unique local area/coverage information
-- a dedicated "Meet the team" section
-- verified named team profiles where the current Heritage Healthcare website publishes them
-- role-based team cards where no named profiles are currently published (no names have been invented)
-- individual local phone number and email address
-- individual office address and opening information
-- a dedicated local enquiry form addressed to the local office email
-- local proof/insight content
+## V3 — Postcode enquiry routing
 
-The local contact details and published team information were checked against Heritage Healthcare's public location pages during the build. Ealing remains a coming-soon page and therefore uses central Heritage Healthcare contact details until a local office is published.
+The website now includes a full front-end demonstration of the proposed enquiry routing architecture.
+
+### Routing behaviour
+1. Every location form records the page/location the enquiry came from.
+2. The postcode is normalised and checked against the configured office coverage list.
+3. If the postcode is covered by the office whose page the user submitted on, the enquiry is marked `local` and routed to that office.
+4. If the postcode is covered by a different Heritage office, the enquiry is marked `other-office` and routed to the National Office with the suggested local office shown.
+5. If no configured Heritage office covers the postcode, it is marked `national` and routed to the National Office.
+6. Invalid postcodes can still be submitted, but are flagged for National review.
+7. The main Contact page uses National routing by default.
+
+### Demo
+Open `admin-routing.html` to test postcode routing and view the configured office directory.
+
+### Important production note
+This downloadable V3 is a browser-only prototype. It DOES NOT send real emails and it must not be used as the production routing mechanism. The production implementation should move postcode lookup, coverage matching, recipient selection, spam protection, database logging and email delivery to a secure server/API. The browser should never be trusted to decide the final recipient.
+
+### Recommended production flow
+Website form → secure API → postcode validation/lookup → coverage database → route to local or National Office → log enquiry centrally → send confirmation to enquirer → notify office → CRM/lead dashboard.
+
+The coverage list in this prototype is a configurable demonstration and should be replaced with the final approved postcode coverage dataset supplied by Heritage Healthcare before launch.
