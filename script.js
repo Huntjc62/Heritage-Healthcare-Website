@@ -44,11 +44,21 @@ search?.addEventListener('input', () => {
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({behavior:'smooth', block:'start'});
     }
+  });
+});
+
+// IMPORTANT: links ending in .html are normal page navigation.
+// They are intentionally NOT intercepted by JavaScript.
+document.querySelectorAll('a[href$=".html"]').forEach(link => {
+  link.addEventListener('click', () => {
+    // Allow the browser to load the requested page normally.
   });
 });
 

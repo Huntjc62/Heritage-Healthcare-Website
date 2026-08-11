@@ -43,3 +43,7 @@ The prototype reflects the public-facing service/location structure and contact 
 All primary navigation and footer links now point to their own pages.
 
 The forms, search and care finder are functional front-end demos. Production integrations would connect these to a CRM, database, location service, CMS and secure form endpoint.
+
+
+## Navigation fix
+The main navigation now uses ordinary `.html` page links and JavaScript only handles same-page `#section` scrolling. Navigation links are not intercepted by the smooth-scroll script, so clicking a navigation item loads the corresponding page.
