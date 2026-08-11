@@ -144,3 +144,30 @@ This downloadable V3 is a browser-only prototype. It DOES NOT send real emails a
 Website form → secure API → postcode validation/lookup → coverage database → route to local or National Office → log enquiry centrally → send confirmation to enquirer → notify office → CRM/lead dashboard.
 
 The coverage list in this prototype is a configurable demonstration and should be replaced with the final approved postcode coverage dataset supplied by Heritage Healthcare before launch.
+
+
+## V4 — Live postcode verification + working email action
+
+The routing data has been rechecked against the current Heritage Healthcare location pages available during this verification pass. The live pages publish postcode **sectors** (for example `YO24 1`, not merely the outward code `YO24`), so the router now matches the full postcode sector.
+
+This fixes a major problem in V3: broad outward-code matching could incorrectly claim an entire postcode area was covered when the live Heritage page only listed selected sectors.
+
+### Coverage safety
+- Verified live sector lists are loaded for the locations successfully retrieved from the current Heritage pages.
+- Where a live location page could not be fully retrieved during the verification pass, its coverage is deliberately left unverified and enquiries fall back to National Office. No invented postcode coverage is used.
+- The final production launch should import the complete approved postcode-sector dataset from Heritage Healthcare and keep it in a server-side database.
+
+### Send Enquiry button
+The button now works in the static download: submitting the form opens the visitor's configured email application with:
+- the correct local or National recipient
+- a subject
+- source location
+- postcode routing result
+- customer details
+- care requirement
+- message
+
+This is the maximum reliable "send" behaviour available from a completely static HTML/GitHub Pages package without a backend. For the production website, the same form should POST to a secure backend/API so the website can send the email automatically without opening the visitor's email client, while also logging the enquiry to a CRM/database.
+
+### Production routing
+Browser form → secure API → exact postcode-sector match → local/National routing → database log → office email → customer confirmation.

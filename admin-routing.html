@@ -10,7 +10,7 @@
 <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">H</span><span><strong>HERITAGE</strong><small>HEALTHCARE</small></span></a></header>
 <main>
 <section class="content-section cream">
-<div class="content-intro"><div class="section-kicker">Admin / Routing</div><h1 style="font-family:Georgia,serif;font-weight:500;font-size:clamp(48px,6vw,80px);line-height:.95">Enquiry routing<br><em style="color:#7ba595">control centre.</em></h1><p>This V3 prototype demonstrates how postcode-based enquiry routing will work. It does not send real email.</p></div>
+<div class="content-intro"><div class="section-kicker">Admin / Routing</div><h1 style="font-family:Georgia,serif;font-weight:500;font-size:clamp(48px,6vw,80px);line-height:.95">Enquiry routing<br><em style="color:#7ba595">control centre.</em></h1><p>This V4 prototype demonstrates postcode-based routing and opens the correct email recipient in your configured email app. It does not silently send email from a static website.</p></div>
 <div class="contact-form" style="max-width:760px">
 <label for="test-postcode">Test a postcode</label>
 <div class="postcode-row"><input id="test-postcode" placeholder="e.g. YO24 1AA"><button class="button button-primary" id="test-route">Check route →</button></div>
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
  Object.entries(offices).forEach(([slug,o])=>{
    const card=document.createElement("div");
    card.className="location-full-card";
-   card.innerHTML=`<span class="section-label">OFFICE</span><h3>${o.name}</h3><p>${o.email||"National routing required"}<br>${o.phone||""}</p><small>${o.postcodes.length} postcode areas configured</small>`;
+   card.innerHTML=`<span class="section-label">${o.coverage_verified ? "VERIFIED COVERAGE" : "NATIONAL FALLBACK"}</span><h3>${o.name}</h3><p>${o.email||"National routing required"}<br>${o.phone||""}</p><small>${o.postcodes.length} postcode sectors loaded</small>`;
    list.appendChild(card);
  });
  document.querySelector("#test-route").addEventListener("click",()=>{
