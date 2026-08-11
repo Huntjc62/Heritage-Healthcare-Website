@@ -90,3 +90,12 @@ document.querySelector('#search-jobs')?.addEventListener('click', () => {
     job.style.display = show ? 'flex' : 'none';
   });
 });
+
+document.querySelectorAll('.faq button').forEach(btn => {
+  btn.addEventListener('click', () => btn.closest('.faq').classList.toggle('open'));
+});
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, {threshold:.08});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));

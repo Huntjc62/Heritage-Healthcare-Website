@@ -47,3 +47,19 @@ The forms, search and care finder are functional front-end demos. Production int
 
 ## Navigation fix
 The main navigation now uses ordinary `.html` page links and JavaScript only handles same-page `#section` scrolling. Navigation links are not intercepted by the smooth-scroll script, so clicking a navigation item loads the corresponding page.
+
+## V1 Expanded
+This revision expands the core pages into a longer, editorial-style experience with:
+- deeper expertise-led content
+- service journey storytelling
+- trust/statistics sections
+- testimonials
+- FAQs
+- editorial feature blocks
+- local network storytelling
+- richer careers content
+- richer care-finder explanation
+- interactive FAQ accordions
+- scroll reveal animations
+
+The claims in the prototype are based on information publicly presented by Heritage Healthcare and should be checked against final approved corporate copy before production.
