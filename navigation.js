@@ -1,15 +1,14 @@
 /*
-  Heritage Healthcare V1 — page navigation
-  Navigation items are deliberately handled as full-page links.
-  This makes the site work reliably when opened locally and on GitHub Pages.
+ Heritage Healthcare V1 — navigation
+ Main navigation and individual location links always perform full page navigation.
 */
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.nav-page-link[data-page]').forEach(link => {
+  document.querySelectorAll('a[data-location-link="true"], a.nav-page-link[data-page]').forEach(link => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
-      event.stopPropagation();
-      const page = link.getAttribute('data-page');
-      if (page) window.location.assign(page);
+      event.stopImmediatePropagation();
+      const destination = link.getAttribute('href');
+      if (destination) window.location.assign(destination);
     }, true);
   });
 });

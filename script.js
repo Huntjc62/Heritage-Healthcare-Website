@@ -53,6 +53,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+// Full .html page links, including location pages, are intentionally not
+// handled by the smooth-scroll code.
+
 
 // IMPORTANT: links ending in .html are normal page navigation.
 // They are intentionally NOT intercepted by JavaScript.

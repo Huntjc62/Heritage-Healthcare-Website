@@ -75,3 +75,8 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}.announcement{bac
 .care-principles .pillar p{max-width:220px}
 @media(max-width:1000px){.care-principles .pillar h3{font-size:25px;min-height:58px}}
 @media(max-width:760px){.care-principles .pillar h3{min-height:0}}
+
+.location-directory-card{cursor:pointer;position:relative}
+.location-directory-card .location-link{transition:transform .2s ease}
+.location-directory-card:hover .location-link{transform:translateX(5px)}
+.location-item{display:flex;text-decoration:none;cursor:pointer}

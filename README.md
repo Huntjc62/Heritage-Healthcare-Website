@@ -115,3 +115,7 @@ The main header navigation now has explicit `data-page` destinations and a dedic
 
 ## Visual fix
 The expertise/principle cards have been normalised to equal heights with consistent spacing and responsive behaviour. Long headings such as “Peace of mind” now wrap cleanly without making the card shorter or taller than its neighbours.
+
+
+## Location navigation fix
+Every location listed on the Locations page is now a real link to its corresponding dedicated location HTML page. The location directory cards and the location list/search links use explicit destinations and are protected from smooth-scroll interception.
