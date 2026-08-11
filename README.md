@@ -63,3 +63,6 @@ This revision expands the core pages into a longer, editorial-style experience w
 - scroll reveal animations
 
 The claims in the prototype are based on information publicly presented by Heritage Healthcare and should be checked against final approved corporate copy before production.
+
+## Navigation hardening
+The main header navigation now has explicit `data-page` destinations and a dedicated navigation handler that forces a full page load. This prevents the navigation from being treated as an in-page anchor/scroll interaction. It is designed to work both from local files and when hosted on GitHub Pages.
