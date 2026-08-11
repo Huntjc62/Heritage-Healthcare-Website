@@ -51,3 +51,32 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+document.querySelector('#finder-progress') && (() => {
+  const p = document.querySelector('#finder-progress');
+  const allSteps = [...document.querySelectorAll('.finder-step')];
+  p.style.width = '33.33%';
+  document.querySelectorAll('.choice').forEach(c => c.addEventListener('click', () => {
+    const n = Number(c.dataset.next);
+    p.style.width = `${n * 33.33}%`;
+  }));
+})();
+
+const contactForm = document.querySelector('#contact-form');
+contactForm?.addEventListener('submit', e => {
+  e.preventDefault();
+  document.querySelector('#form-message').style.display = 'block';
+  contactForm.reset();
+});
+
+const jobSearch = document.querySelector('#job-search');
+const jobType = document.querySelector('#job-type');
+document.querySelector('#search-jobs')?.addEventListener('click', () => {
+  const q = (jobSearch?.value || '').toLowerCase();
+  const type = jobType?.value || '';
+  document.querySelectorAll('.job').forEach(job => {
+    const text = job.textContent.toLowerCase();
+    const show = text.includes(q) && (!type || text.includes(type.toLowerCase()));
+    job.style.display = show ? 'flex' : 'none';
+  });
+});
