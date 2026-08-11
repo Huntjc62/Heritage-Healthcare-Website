@@ -119,3 +119,20 @@ The expertise/principle cards have been normalised to equal heights with consist
 
 ## Location navigation fix
 Every location listed on the Locations page is now a real link to its corresponding dedicated location HTML page. The location directory cards and the location list/search links use explicit destinations and are protected from smooth-scroll interception.
+
+
+## Location pages V2 — local SEO architecture
+Every location now has its own content profile rather than sharing a generic template. Each page has:
+- a unique SEO title and meta description
+- a unique local proposition and hero
+- unique local service focus
+- unique local area/coverage information
+- a dedicated "Meet the team" section
+- verified named team profiles where the current Heritage Healthcare website publishes them
+- role-based team cards where no named profiles are currently published (no names have been invented)
+- individual local phone number and email address
+- individual office address and opening information
+- a dedicated local enquiry form addressed to the local office email
+- local proof/insight content
+
+The local contact details and published team information were checked against Heritage Healthcare's public location pages during the build. Ealing remains a coming-soon page and therefore uses central Heritage Healthcare contact details until a local office is published.
