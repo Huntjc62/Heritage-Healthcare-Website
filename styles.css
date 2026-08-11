@@ -54,3 +54,24 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}.announcement{bac
 .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.filter-tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;font-size:10px;font-weight:900;cursor:pointer}.filter-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 @media(max-width:1000px){.editorial-grid,.editorial-grid.reverse{grid-template-columns:1fr}.editorial-visual{min-height:360px}.pillars,.timeline{grid-template-columns:1fr 1fr}.stat-wall{grid-template-columns:1fr 1fr}.testimonial-grid,.faq-grid{grid-template-columns:1fr}.journey{grid-template-columns:1fr 1fr}.journey-step{border-bottom:1px solid var(--line)}}
 @media(max-width:650px){.editorial-grid{gap:35px}.editorial-visual{min-height:320px}.pillars,.timeline,.stat-wall,.journey{grid-template-columns:1fr}.pillars .pillar{padding:24px}.stat-wall>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}.journey-step{border-right:0}.testimonial-card blockquote{font-size:24px}}
+
+.location-directory{display:grid;gap:38px}.location-region{border-top:1px solid var(--line);padding-top:24px}.region-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.region-heading span{font-family:Georgia,serif;font-size:29px;color:var(--navy)}.region-heading small{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#84918f}.location-directory-card{display:block;min-height:220px}.location-directory-card:hover{color:var(--navy)}.location-directory-card .location-link{display:block;margin-top:18px;font-size:11px;font-weight:900;color:var(--navy)}.location-directory-card.coming-soon{background:#f1f4f1}.location-directory-card.coming-soon h3{color:#66787a}
+@media(max-width:650px){.region-heading span{font-size:25px}.region-heading{align-items:flex-start;gap:12px}.location-directory-card{min-height:190px}}
+
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:45px;align-items:stretch}.pillar{padding:30px;min-height:350px;height:100%;border:1px solid rgba(255,255,255,.13);border-radius:22px;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}.pillar span{font-size:10px;color:#91aaa5;display:block;min-height:14px}.pillar h3{font-family:Georgia,serif;font-size:28px;line-height:1.12;font-weight:500;margin:28px 0 12px;max-width:100%}.pillar p{font-size:12px!important;color:#9fb5b1!important;line-height:1.65!important;margin:0;max-width:100%}
+/* Equal-height expertise cards */
+.pillars .pillar{box-sizing:border-box}
+@media(max-width:1000px){
+  .pillars{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pillar{min-height:330px;padding:25px}
+  .pillar h3{font-size:25px}
+}
+@media(max-width:760px){
+  .pillars{grid-template-columns:1fr;gap:12px}
+  .pillar{min-height:0;height:auto}
+}
+
+.care-principles .pillar h3{font-size:30px;line-height:1.08;min-height:65px}
+.care-principles .pillar p{max-width:220px}
+@media(max-width:1000px){.care-principles .pillar h3{font-size:25px;min-height:58px}}
+@media(max-width:760px){.care-principles .pillar h3{min-height:0}}

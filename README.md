@@ -66,3 +66,52 @@ The claims in the prototype are based on information publicly presented by Herit
 
 ## Navigation hardening
 The main header navigation now has explicit `data-page` destinations and a dedicated navigation handler that forces a full page load. This prevents the navigation from being treated as an in-page anchor/scroll interaction. It is designed to work both from local files and when hosted on GitHub Pages.
+
+
+## Authoritative location list supplied by user
+
+### North East
+- North East
+- North Tyneside & South Northumberland
+
+### North West
+- Cheadle & Wilmslow
+- Rochdale
+- Trafford & Cheshire
+
+### Yorkshire
+- Barnsley
+- Kirklees
+- Northallerton & Richmond (North Yorkshire)
+- Wakefield
+- York
+
+### East Midlands
+- Leicester
+- Milton Keynes
+- Northampton
+- St Albans & Watford
+
+### West Midlands
+- Coventry
+- Birmingham South
+
+### South East
+- Windsor
+
+### South West
+- Bristol
+
+### London
+- Basildon
+- Ealing – Coming Soon
+- Hounslow – Richmond
+- Wandsworth
+
+### Wales
+- Cardiff
+- Swansea
+
+
+## Visual fix
+The expertise/principle cards have been normalised to equal heights with consistent spacing and responsive behaviour. Long headings such as “Peace of mind” now wrap cleanly without making the card shorter or taller than its neighbours.
