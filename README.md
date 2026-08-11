@@ -1,0 +1,30 @@
+# Heritage Healthcare — V1 Website Concept
+
+This is a front-end V1 prototype for a proposed Heritage Healthcare website redesign.
+
+## Run it
+1. Unzip the folder.
+2. Open `index.html` in a browser.
+3. No build tools or server are required.
+
+## Included
+- Premium responsive homepage
+- Sticky navigation
+- Mobile navigation
+- Interactive 3-step care finder demo
+- Location search demo
+- Service cards
+- UK location explorer visual
+- Testimonials
+- Care Hub preview
+- Careers section
+- Contact CTA
+- Responsive mobile layout
+
+## Important
+This is a visual/UX prototype, not a production healthcare platform.
+Replace placeholder imagery with approved Heritage Healthcare photography and apply the final approved brand assets before launch.
+Connect forms, location data, CRM, analytics, review feeds and CMS in the production build.
+
+## Current Heritage information used for the prototype
+The prototype reflects the public-facing service/location structure and contact details currently shown by Heritage Healthcare, including the broad service categories, 20+ UK locations, 0333 004 0277 and care@heritagehealthcare.co.uk.
