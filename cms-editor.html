@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<meta charset="UTF-8"><meta name="theme-color" content="#332173"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Editor | Heritage Healthcare</title><link rel="icon" href="assets/heritage-logo-tight.png" type="image/png">
+<link rel="stylesheet" href="./cms.css?v=20260813-cms1"></head>
+<body class="cms-body" data-cms-page="editor">
+<div class="cms-shell"><aside class="cms-sidebar">
+<a class="cms-brand" href="admin-routing.html"><img src="assets/heritage-logo.png" alt="Heritage Healthcare"></a>
+<div class="cms-context"><small>Head Office</small><strong data-cms-user>National Admin</strong></div>
+<nav class="cms-nav"><a href="admin-routing.html">Control centre</a><a href="crm-dashboard.html">CRM</a><a href="cms-content.html">All content</a><a class="active" href="cms-editor.html?type=blog">Write a blog</a><a href="cms-editor.html?type=guide">Write a Care Hub guide</a><a href="blog.html" target="_blank">View blog ↗</a><a href="care-hub.html" target="_blank">View Care Hub ↗</a><a href="index.html">← Website</a></nav>
+<div class="cms-sidebar-bottom"><a href="#" data-cms-logout>Sign out</a></div></aside>
+<main class="cms-main"><header class="cms-topbar"><div><h1>Content editor</h1><p>Head Office publishing · <span data-editor-type>Blog article</span></p></div><div class="cms-actions"><a class="cms-button secondary" href="cms-content.html">← Content library</a></div></header>
+<section class="cms-content">
+<div class="cms-two-col">
+<div class="cms-form">
+<div class="cms-form-grid">
+<div class="cms-field full"><label for="title">Title</label><input id="title" placeholder="Enter a clear, useful title"></div>
+<div class="cms-field"><label for="slug">URL slug</label><input id="slug" placeholder="e.g. homecare-and-independence"></div>
+<div class="cms-field"><label for="category">Category</label><input id="category" placeholder="e.g. Family Advice"></div>
+<div class="cms-field full"><label for="excerpt">Introduction / excerpt</label><textarea id="excerpt" style="min-height:110px" placeholder="A short introduction used on cards and at the top of the article."></textarea></div>
+<div class="cms-field full"><label for="content">Main content</label><textarea id="content" placeholder="Write your content here. Leave a blank line between paragraphs."></textarea></div>
+<div class="cms-field"><label for="seo-title">SEO title</label><input id="seo-title" placeholder="Page title for Google"></div>
+<div class="cms-field"><label for="seo-description">SEO description</label><textarea id="seo-description" style="min-height:110px" placeholder="A concise description for search results."></textarea></div>
+<div class="cms-field"><label for="status">Status</label><select id="status"><option value="draft">Draft</option><option value="published">Published</option></select></div>
+</div>
+<div class="cms-help"><strong>Writing tip:</strong> Keep the introduction useful, answer one clear question, use plain English and give the reader a sensible next step. Use a blank line between paragraphs.</div>
+<div class="cms-form-actions"><button class="cms-button secondary" id="save-draft">Save draft</button><button class="cms-button cyan" id="publish">Publish to website →</button></div>
+</div>
+<div class="cms-preview">
+<div class="cms-preview-hero"><small id="preview-kicker">HERITAGE HEALTHCARE · BLOG</small><h2 id="preview-title">Your title</h2><p id="preview-excerpt">Your introduction will appear here.</p></div>
+<div class="cms-preview-body" id="preview-body"><p>Your content will appear here.</p></div>
+</div>
+</div>
+</section></main></div>
+<div class="cms-toast" id="cms-toast"></div><script src="crm.js?v=20260813-cms1"></script><script src="cms.js?v=20260813-cms1"></script><script src="site-update.js?v=20260813-home5"></script>
+</body></html>

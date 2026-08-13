@@ -45,7 +45,7 @@
           return;
         }
         localStorage.setItem(SESSION, user.id);
-        location.href = "crm-dashboard.html";
+        location.href = user.role === "national" ? "admin-routing.html" : "crm-dashboard.html";
       });
       return;
     }
