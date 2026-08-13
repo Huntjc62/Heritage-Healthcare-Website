@@ -9,7 +9,7 @@
 <title>Basildon | Heritage Healthcare</title>
 <link rel="icon" href="assets/heritage-logo-tight.png" type="image/png">
 <link rel="stylesheet" href="./styles.css?v=20260813-cms1">
-</head>
+<link rel="stylesheet" href="local-cms.css?v=20260813-local1"></head>
 <body class="heritage-site">
 <div class="announcement"><span>★★★★★ Rated Excellent in Homecare</span><span class="announcement-sep">•</span><span>20+ locations across the UK</span><a href="care-finder.html">Find care near you →</a></div>
 <header class="site-header" id="top">
@@ -109,6 +109,18 @@
   </div>
 </section>
 
+
+<div data-local-office-id="basildon" data-local-office-name="Basildon" data-blog-file="basildon-blog.html" style="display:none"></div>
+<section class="local-articles" id="local-latest-articles">
+  <div class="section-label">From your local team</div>
+  <div class="content-intro" style="margin-top:10px">
+    <h2>Latest articles from<br><em>Basildon</em></h2>
+    <p>Useful local advice, care guidance and updates from your Heritage Healthcare team.</p>
+  </div>
+  <div class="local-article-grid" id="location-latest-grid" style="margin-top:28px"></div>
+  <div style="margin-top:20px"><a class="button button-secondary" href="basildon-blog.html">View all Basildon articles →</a></div>
+</section>
+
 </main>
 <footer class="footer">
   <div class="footer-top"><a class="brand footer-brand" href="index.html" aria-label="Heritage Healthcare home">
@@ -163,4 +175,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script src="./site-update.js?v=20260813-cms1"></script>
-</body></html>
+<script src="local-blog-public.js?v=20260813-local1"></script><script>window.HeritageLocalOffice={id:"basildon",name:"Basildon"};</script><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector("[data-local-office-id]");const g=document.querySelector("#location-latest-grid");if(e&&g){const d=JSON.parse(localStorage.getItem("heritageLocalBlogs_v1")||"{}");const a=(d[e.dataset.localOfficeId]||[]).filter(x=>x.status==="published").sort((x,y)=>new Date(y.updatedAt)-new Date(x.updatedAt)).slice(0,3);g.innerHTML=a.map(x=>`<article class="local-article-card"><div class="local-article-art"></div><div class="local-article-body"><small>${x.category||"Local Advice"}</small><h2>${x.title}</h2><p>${x.excerpt||""}</p><a href="basildon-blog.html?article=${encodeURIComponent(x.id)}">Read article →</a></div></article>`).join("")||`<div class="local-empty" style="grid-column:1/-1">Our local team will be sharing useful advice here soon.</div>`;}});</script></body></html>
