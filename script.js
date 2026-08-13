@@ -98,6 +98,7 @@ document.querySelectorAll('.faq button').forEach(btn => {
   btn.addEventListener('click', () => btn.closest('.faq').classList.toggle('open'));
 });
 
+document.body.classList.add('js-reveal-ready');
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, {threshold:.08});
