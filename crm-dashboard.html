@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="theme-color" content="#332173"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dashboard | Heritage Healthcare CRM</title><link rel="stylesheet" href="crm.css"></head>
+<body class="crm-body" data-crm-page="dashboard">
+<div class="crm-shell">
+<aside class="crm-sidebar">
+<a class="crm-brand" href="crm-dashboard.html"><img src="assets/heritage-logo.png" alt="Heritage Healthcare"></a>
+<div class="crm-office-chip"><span>Signed in as</span><b data-office-name>Office</b></div>
+<nav class="crm-nav">
+<a class="active" href="crm-dashboard.html">Dashboard</a>
+<a class="" href="crm-enquiries.html">Enquiries</a>
+<a class="" href="crm-new-enquiry.html">New enquiry</a>
+<a class="" href="crm-reports.html">Reports</a>
+<a href="index.html">← Website</a>
+</nav>
+<div class="crm-sidebar-bottom"><div class="crm-user"><b data-user-name></b><br><span>Secure CRM account</span></div><a class="crm-logout" href="#" data-logout>Sign out</a></div>
+</aside><div class="crm-main">
+<header class="crm-topbar"><div><h1>Dashboard</h1><p>Heritage Healthcare enquiry management</p></div><div class="crm-top-actions"><a class="crm-button secondary" href="crm-new-enquiry.html">+ New enquiry</a></div></header>
+<main class="crm-content">
+<div class="crm-grid">
+<div class="crm-card crm-stat"><small>Total enquiries</small><strong data-stat="total">0</strong><span>Visible to this account</span></div>
+<div class="crm-card crm-stat"><small>New</small><strong data-stat="new">0</strong><span>Require action</span></div>
+<div class="crm-card crm-stat"><small>Assessments</small><strong data-stat="assessment">0</strong><span>Booked</span></div>
+<div class="crm-card crm-stat"><small>Care started</small><strong data-stat="started">0</strong><span>Converted enquiries</span></div>
+</div>
+<section class="crm-section"><div class="crm-section-title"><div><h2>Recent enquiries</h2><p>The latest enquiries assigned to your view.</p></div><a class="crm-button secondary" href="crm-enquiries.html">View all →</a></div>
+<div class="crm-table-wrap"><table class="crm-table"><thead><tr><th>Customer</th><th>Postcode</th><th>Care required</th><th>Status</th><th>Received</th></tr></thead><tbody id="recent-enquiries"></tbody></table></div></section>
+<section class="crm-section"><div class="crm-card"><h3 style="font-family:Georgia,serif;font-weight:500">How the system works</h3><p style="font-size:12px;line-height:1.7;color:#718083">Website enquiries are captured, matched against approved postcode coverage and assigned to the appropriate office. Office users only see their own enquiries. National users can see and reassign all enquiries.</p></div></section>
+</main></div></div>
+<div class="crm-toast" id="crm-toast"></div><script src="crm.js"></script></body></html>

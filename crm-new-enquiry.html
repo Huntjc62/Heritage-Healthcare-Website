@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="theme-color" content="#332173"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>New enquiry | Heritage Healthcare CRM</title><link rel="stylesheet" href="crm.css"></head>
+<body class="crm-body" data-crm-page="new-enquiry">
+<div class="crm-shell">
+<aside class="crm-sidebar">
+<a class="crm-brand" href="crm-dashboard.html"><img src="assets/heritage-logo.png" alt="Heritage Healthcare"></a>
+<div class="crm-office-chip"><span>Signed in as</span><b data-office-name>Office</b></div>
+<nav class="crm-nav">
+<a class="" href="crm-dashboard.html">Dashboard</a>
+<a class="" href="crm-enquiries.html">Enquiries</a>
+<a class="active" href="crm-new-enquiry.html">New enquiry</a>
+<a class="" href="crm-reports.html">Reports</a>
+<a href="index.html">← Website</a>
+</nav>
+<div class="crm-sidebar-bottom"><div class="crm-user"><b data-user-name></b><br><span>Secure CRM account</span></div><a class="crm-logout" href="#" data-logout>Sign out</a></div>
+</aside><div class="crm-main">
+<header class="crm-topbar"><div><h1>New enquiry</h1><p>Heritage Healthcare enquiry management</p></div><div class="crm-top-actions"><a class="crm-button secondary" href="crm-new-enquiry.html">+ New enquiry</a></div></header>
+<main class="crm-content">
+<div class="crm-card" style="max-width:900px">
+<div class="crm-section-title"><div><h2>Create an enquiry</h2><p>Use this for phone calls, referrals or manually captured enquiries.</p></div></div>
+<form id="crm-new-enquiry"><div class="crm-form-grid">
+<div class="crm-field"><label>Customer name</label><input name="name" required></div>
+<div class="crm-field"><label>Email</label><input name="email" type="email" required></div>
+<div class="crm-field"><label>Telephone</label><input name="phone" required></div>
+<div class="crm-field"><label>Person requiring care</label><input name="person" required></div>
+<div class="crm-field"><label>Postcode</label><input name="postcode" required></div>
+<div class="crm-field"><label>Care required</label><select name="careType"><option>I'm not sure yet</option><option>Personal care</option><option>Dementia care</option><option>Companionship</option><option>Live-in care</option><option>Respite care</option><option>Hospital to home</option><option>Specialist care</option><option>End-of-life care</option></select></div>
+<div class="crm-field full"><label>Office</label><select name="officeId" ><option value="north-east">North East</option><option value="north-tyneside-south-northumberland">North Tyneside &amp; South Northumberland</option><option value="cheadle-wilmslow">Cheadle &amp; Wilmslow</option><option value="rochdale">Rochdale</option><option value="trafford-cheshire">Trafford &amp; Cheshire</option><option value="barnsley">Barnsley</option><option value="kirklees">Kirklees</option><option value="northallerton-richmond-north-yorkshire">Northallerton &amp; Richmond (North Yorkshire)</option><option value="wakefield">Wakefield</option><option value="york">York</option><option value="leicester">Leicester</option><option value="milton-keynes">Milton Keynes</option><option value="northampton">Northampton</option><option value="st-albans-watford">St Albans &amp; Watford</option><option value="coventry">Coventry</option><option value="birmingham-south">Birmingham South</option><option value="windsor">Windsor</option><option value="bristol">Bristol</option><option value="basildon">Basildon</option><option value="ealing-coming-soon">Ealing – Coming Soon</option><option value="hounslow-richmond">Hounslow – Richmond</option><option value="wandsworth">Wandsworth</option><option value="cardiff">Cardiff</option><option value="swansea">Swansea</option></select></div>
+<div class="crm-field full"><label>Enquiry</label><textarea name="message" required></textarea></div>
+</div><div class="crm-actions"><button class="crm-button" type="submit">Create enquiry →</button><a class="crm-button secondary" href="crm-enquiries.html">Cancel</a></div></form></div>
+</main></div></div>
+<div class="crm-toast" id="crm-toast"></div><script src="crm.js"></script></body></html>

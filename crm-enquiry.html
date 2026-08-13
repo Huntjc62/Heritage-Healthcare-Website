@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="theme-color" content="#332173"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Enquiry | Heritage Healthcare CRM</title><link rel="stylesheet" href="crm.css"></head>
+<body class="crm-body" data-crm-page="enquiry">
+<div class="crm-shell">
+<aside class="crm-sidebar">
+<a class="crm-brand" href="crm-dashboard.html"><img src="assets/heritage-logo.png" alt="Heritage Healthcare"></a>
+<div class="crm-office-chip"><span>Signed in as</span><b data-office-name>Office</b></div>
+<nav class="crm-nav">
+<a class="" href="crm-dashboard.html">Dashboard</a>
+<a class="active" href="crm-enquiries.html">Enquiries</a>
+<a class="" href="crm-new-enquiry.html">New enquiry</a>
+<a class="" href="crm-reports.html">Reports</a>
+<a href="index.html">← Website</a>
+</nav>
+<div class="crm-sidebar-bottom"><div class="crm-user"><b data-user-name></b><br><span>Secure CRM account</span></div><a class="crm-logout" href="#" data-logout>Sign out</a></div>
+</aside><div class="crm-main">
+<header class="crm-topbar"><div><h1>Enquiry</h1><p>Heritage Healthcare enquiry management</p></div><div class="crm-top-actions"><a class="crm-button secondary" href="crm-new-enquiry.html">+ New enquiry</a></div></header>
+<main class="crm-content">
+<div id="enquiry-error" class="crm-alert show" style="margin-bottom:15px"></div>
+<div class="crm-layout">
+<section class="crm-card">
+<div class="crm-modal-head"><div><span class="crm-badge status-new" data-e-id></span><h2 style="font-family:Georgia,serif;font-weight:500;font-size:34px;margin:10px 0" data-e-name></h2><p style="font-size:10px;color:#718083">Assigned office: <b data-e-office></b></p></div></div>
+<div class="crm-form-grid" style="margin-top:25px">
+<div class="crm-field"><label>Email</label><input data-e-email readonly></div><div class="crm-field"><label>Phone</label><input data-e-phone readonly></div>
+<div class="crm-field"><label>Postcode</label><input data-e-postcode readonly></div><div class="crm-field"><label>Person requiring care</label><input data-e-person readonly></div>
+<div class="crm-field full"><label>Care required</label><input data-e-care readonly></div>
+<div class="crm-field full"><label>Original enquiry</label><textarea data-e-message readonly></textarea></div>
+</div>
+<div class="crm-actions"><button class="crm-button" id="email-customer">Email customer</button><select id="e-status" style="border:1px solid #dfe5e1;border-radius:8px;padding:10px"><option value="new">New</option><option value="contacted">Contacted</option><option value="assessment">Assessment booked</option><option value="care-started">Care started</option><option value="lost">Lost</option><option value="not-proceeding">Not proceeding</option></select><button class="crm-button secondary" id="save-status">Save status</button></div>
+</section>
+<aside class="crm-card"><h3 style="font-family:Georgia,serif;font-weight:500">Activity & notes</h3><textarea id="new-note" placeholder="Add a note about a call, email, assessment or next action…" style="width:100%;box-sizing:border-box;border:1px solid #dfe5e1;border-radius:8px;padding:11px;min-height:100px"></textarea><button class="crm-button" id="add-note" style="margin-top:8px">Add note</button><div id="e-notes" style="margin-top:18px"></div><div id="national-reassign" style="margin-top:20px"><label style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:800">National reassignment</label><select id="assign-office" style="width:100%;margin-top:6px;padding:10px;border:1px solid #dfe5e1;border-radius:8px"></select><button class="crm-button secondary" id="reassign" style="margin-top:8px">Reassign enquiry</button></div></aside>
+</div>
+</main></div></div>
+<div class="crm-toast" id="crm-toast"></div><script src="crm.js"></script></body></html>

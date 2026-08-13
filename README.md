@@ -171,3 +171,40 @@ This is the maximum reliable "send" behaviour available from a completely static
 
 ### Production routing
 Browser form → secure API → exact postcode-sector match → local/National routing → database log → office email → customer confirmation.
+
+
+## V5 — CRM prototype integrated
+
+This package adds a functional front-end CRM prototype and a website-to-CRM bridge.
+
+### CRM pages
+- `crm-login.html` — login
+- `crm-dashboard.html` — office dashboard
+- `crm-enquiries.html` — enquiry inbox/search/filter
+- `crm-enquiry.html?id=...` — enquiry record
+- `crm-new-enquiry.html` — manually create enquiry
+- `crm-reports.html` — basic reporting
+
+### Demo users
+- National Admin: `admin@heritagehealthcare.co.uk` / `admin123`
+- York: `york.manager@heritagehealthcare.co.uk` / `york123`
+- Birmingham South: `birmingham.manager@heritagehealthcare.co.uk` / `bham123`
+- Cardiff: `cardiff.manager@heritagehealthcare.co.uk` / `cardiff123`
+
+### Prototype behaviour
+The downloadable package uses browser localStorage so it can be opened and tested immediately. Website enquiries are captured into the local CRM demo store and the email action can still open the routed email client.
+
+### Production requirement
+This is NOT a production care CRM. Real customer data must not be stored in localStorage. A production version needs:
+- secure hosted database
+- authentication
+- server-side authorisation / office isolation
+- server-side postcode routing
+- secure email service
+- audit logging
+- backups
+- encryption and appropriate data retention controls
+- proper privacy, consent and security controls
+- CRM/API deployment rather than browser-only storage
+
+The next production build should replace the localStorage bridge with a secure API and database while keeping the same screens and user journeys.
