@@ -5,7 +5,415 @@
 <meta name="description" content="Discover the people-first approach behind Heritage Healthcare and why families choose local homecare.">
 <title>Why Heritage | Heritage Healthcare</title>
 <link rel="icon" href="assets/heritage-logo-tight.png" type="image/png">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="./styles.css?v=20260813"><style id="heritage-inline-styles">
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --purple:#5c4d9b;
+  --purple-dark:#332173;
+  --cyan:#34bbda;
+  --pink:#f3a4bb;
+  --grey:#f1f3f3;
+  --white:#ffffff;
+  --black:#16151a;
+  --ink:#29263b;
+  --muted:#68677a;
+  --line:#dfe2e5;
+  --soft-purple:#ece9f7;
+  --soft-cyan:#e5f7fb;
+  --radius:24px;
+  --shadow:0 24px 70px rgba(51,33,115,.12);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--white);color:var(--ink);
+  font-family:'Tenso','Montserrat','Avenir Next',Arial,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+.announcement{
+  min-height:40px;background:var(--purple-dark);color:#fff;
+  display:flex;justify-content:center;align-items:center;gap:18px;
+  padding:9px 20px;font-size:11px;font-weight:600;letter-spacing:.02em;
+}
+.announcement a{color:#fff;font-weight:800;border-bottom:1px solid rgba(255,255,255,.45)}
+.announcement-sep{opacity:.35}
+
+.site-header{
+  height:94px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5.5vw;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);
+  position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:0;color:var(--purple-dark)}
+.brand-logo{display:block;width:205px;height:auto;max-height:70px;object-fit:contain;object-position:left center}
+.brand-mark{display:none}
+.brand strong,.brand small{display:none}
+
+.desktop-nav{display:flex;gap:28px;font-size:12px;font-weight:700;color:#4d4b5d}
+.desktop-nav a{position:relative;padding:34px 0}
+.desktop-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:23px;height:2px;background:var(--cyan);transition:.25s}
+.desktop-nav a:hover{color:var(--purple)}
+.desktop-nav a:hover:after{right:0}
+
+.header-actions{display:flex;align-items:center;gap:18px}
+.phone-link{font-size:12px;font-weight:800;color:var(--purple-dark)}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 21px;border-radius:999px;font-weight:800;font-size:12px;
+  border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;
+}
+.button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(51,33,115,.14)}
+.button-primary{background:var(--purple-dark);color:#fff}
+.button-primary:hover{background:var(--purple)}
+.button-light{background:#fff;color:var(--purple-dark)}
+.button-outline-light{border-color:rgba(255,255,255,.55);color:#fff}
+.button-small{padding:12px 18px}
+.menu-toggle{display:none;background:none;border:0;padding:8px}
+.menu-toggle span{display:block;width:26px;height:2px;background:var(--purple-dark);margin:5px 0}
+.mobile-menu{display:none;background:#fff;border-bottom:1px solid var(--line);padding:15px 6vw;z-index:49}
+.mobile-menu a{display:block;padding:13px 0;border-bottom:1px solid var(--line);font-weight:700;color:var(--purple-dark)}
+.mobile-menu.open{display:block}
+
+.hero{
+  min-height:720px;display:grid;grid-template-columns:1.02fr .98fr;
+  overflow:hidden;position:relative;padding:75px 7vw;
+  background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple) 68%,#6e60a7 100%);
+  color:#fff;
+}
+.hero:after{
+  content:"";position:absolute;width:520px;height:520px;border-radius:50%;
+  border:1px solid rgba(52,187,218,.22);right:-180px;bottom:-220px;
+}
+.hero-content{align-self:center;max-width:650px;position:relative;z-index:2}
+.eyebrow,.section-label,.section-kicker{
+  font-size:10px;text-transform:uppercase;letter-spacing:.18em;font-weight:800
+}
+.eyebrow{display:flex;align-items:center;gap:9px;color:#bcecf5;margin-bottom:22px}
+.eyebrow-dot{width:7px;height:7px;background:var(--cyan);border-radius:50%;box-shadow:0 0 0 5px rgba(52,187,218,.12)}
+.hero h1{
+  font-family:'Tenso','Montserrat','Avenir Next',Arial,sans-serif;
+  font-size:clamp(52px,7vw,96px);line-height:.94;letter-spacing:-.055em;
+  margin:0 0 28px;font-weight:300;
+}
+.hero h1 em,h2 em{font-style:italic;color:#aee8f1}
+.hero-copy{font-size:17px;line-height:1.75;max-width:570px;color:#f3f5fb}
+.hero-buttons{display:flex;align-items:center;gap:24px;margin:34px 0}
+.text-button{font-weight:800;font-size:12px;display:inline-flex;gap:10px}
+.light-text{color:#fff}
+.hero-proof{display:flex;align-items:center;gap:14px;margin-top:36px}
+.avatar-stack{display:flex}
+.avatar-stack span{
+  width:34px;height:34px;border:2px solid var(--purple-dark);background:#fff;color:var(--purple-dark);
+  border-radius:50%;display:grid;place-items:center;margin-right:-8px;font-size:10px;font-weight:900
+}
+.hero-proof strong,.hero-proof small{display:block}
+.hero-proof strong{font-size:11px}.hero-proof small{font-size:10px;color:#d7d5e6;margin-top:2px}
+
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.image-frame{
+  width:min(535px,100%);min-height:560px;border-radius:42px;
+  background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.28);padding:20px;position:relative;
+  box-shadow:0 35px 100px rgba(0,0,0,.22);transform:rotate(1.5deg)
+}
+.image-placeholder{
+  height:100%;min-height:520px;border-radius:30px;
+  background-image:linear-gradient(180deg,rgba(51,33,115,.02),rgba(51,33,115,.35)),url('assets/brand-imagery/care-hero.jpeg');
+  background-size:cover;background-position:center;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;
+}
+.image-placeholder:before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(51,33,115,0) 40%,rgba(51,33,115,.42) 100%);
+}
+.image-placeholder:after{
+  content:"";position:absolute;inset:28px;border:1px solid rgba(92,77,155,.16);
+  border-radius:24px;pointer-events:none
+}
+.image-placeholder img{width:68%;max-width:330px;position:absolute;z-index:3;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;padding:10px 16px;border-radius:12px;box-shadow:0 14px 30px rgba(0,0,0,.16)}
+.image-placeholder p{display:none}
+.placeholder-person{display:none}
+.floating-card{
+  position:absolute;right:-26px;bottom:35px;background:#fff;color:var(--purple-dark);
+  border-radius:17px;padding:15px 20px;display:flex;gap:12px;align-items:center;
+  box-shadow:var(--shadow);transform:rotate(-2deg)
+}
+.check{width:30px;height:30px;border-radius:50%;background:var(--cyan);color:#fff;display:grid;place-items:center;font-weight:900}
+.floating-card strong,.floating-card small{display:block}
+.floating-card strong{font-size:12px}.floating-card small{font-size:10px;color:var(--muted)}
+
+.trust-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-bottom:1px solid var(--line)
+}
+.trust-strip div{padding:27px 4vw;border-right:1px solid var(--line)}
+.trust-strip div:last-child{border:0}
+.trust-strip strong,.trust-strip span{display:block}
+.trust-strip strong{font-size:25px;color:var(--purple)}
+.trust-strip span{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:3px}
+
+.care-finder-section{padding:105px 7vw;background:var(--grey)}
+.section-label{color:var(--purple);margin-bottom:16px}
+.finder-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:9vw;align-items:center}
+.finder-grid h2,.section-heading h2,.locations-header h2,.story-copy h2,.hub-section h2,.careers-section h2,.cta-section h2{
+  font-family:'Tenso','Montserrat','Avenir Next',Arial,sans-serif;font-weight:300;
+  font-size:clamp(42px,5vw,70px);line-height:1;letter-spacing:-.045em;margin:0;color:var(--purple-dark)
+}
+.finder-grid p,.section-heading>p,.locations-header>p{color:var(--muted);max-width:480px;font-size:15px;line-height:1.8}
+.finder-card{background:#fff;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);border:1px solid rgba(92,77,155,.08)}
+.progress{height:4px;background:#e7e8ec;border-radius:10px;margin-bottom:32px;overflow:hidden}
+.progress span{display:block;width:33%;height:100%;background:linear-gradient(90deg,var(--purple),var(--cyan));transition:.35s}
+.finder-step small{font-size:9px;font-weight:900;letter-spacing:.16em;color:#8c8999}
+.finder-step h3{font-family:'Tenso','Montserrat',sans-serif;font-weight:500;font-size:28px;color:var(--purple-dark);margin:10px 0 24px}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{border:1px solid var(--line);background:#fff;border-radius:14px;padding:16px;text-align:left;font-weight:750;color:var(--purple-dark);cursor:pointer;display:flex;justify-content:space-between;transition:.2s}
+.choice:hover{background:var(--soft-cyan);border-color:var(--cyan);transform:translateY(-1px)}
+.hidden{display:none}
+.postcode-row{display:flex;gap:10px}
+.postcode-row input,.location-search input{
+  width:100%;border:1px solid var(--line);border-radius:11px;padding:14px;background:#fff;outline:none
+}
+.finder-result{display:none!important;margin:15px 0 0!important;padding:12px;border-radius:10px;background:var(--soft-cyan);color:var(--purple-dark)!important;font-size:12px!important}
+
+.services-section{padding:110px 7vw;background:#fff}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:38px}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.service-card{
+  min-height:285px;border:1px solid var(--line);border-radius:20px;padding:24px;
+  position:relative;overflow:hidden;background:#fff;transition:.25s
+}
+.service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#c9c2e5}
+.service-card.featured{background:var(--purple-dark);color:#fff;border-color:var(--purple-dark)}
+.service-number{position:absolute;right:18px;top:18px;font-size:9px;font-weight:900;letter-spacing:.1em;opacity:.55}
+.service-icon{display:block;font-size:31px;color:var(--cyan);margin-bottom:35px}
+.service-card h3{font-family:'Tenso','Montserrat',sans-serif;font-weight:500;font-size:25px;margin:0 0 10px;color:var(--purple-dark)}
+.service-card.featured h3{color:#fff}
+.service-card p{font-size:12px;line-height:1.7;color:var(--muted)}
+.service-card.featured p{color:#ddd9ed}
+.service-card a{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--purple)}
+.service-card.featured a{color:var(--cyan)}
+
+.locations-section{padding:110px 7vw;background:var(--grey)}
+.locations-header{display:flex;justify-content:space-between;gap:60px;align-items:end;margin-bottom:35px}
+.location-search{max-width:420px;display:flex;gap:8px}
+.locations-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.location-item{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;
+  display:flex;justify-content:space-between;align-items:center;transition:.2s
+}
+.location-item:hover{border-color:var(--cyan);box-shadow:0 10px 30px rgba(51,33,115,.08);transform:translateY(-2px)}
+.location-item strong{display:block;color:var(--purple-dark);font-size:12px}
+.location-item small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+.location-arrow{color:var(--cyan);font-weight:900}
+
+.band{
+  padding:70px 7vw;background:linear-gradient(100deg,var(--purple),var(--purple-dark));
+  color:#fff;display:flex;justify-content:space-between;align-items:center;gap:30px
+}
+.band h2{font-family:'Tenso','Montserrat',sans-serif;font-weight:300;font-size:46px;line-height:1;margin:0}
+.band p{color:#e8e5f3;font-size:14px}.band .button-primary{background:#fff;color:var(--purple-dark)}
+
+.page-hero{
+  min-height:450px;padding:80px 7vw;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;
+  background:linear-gradient(135deg,var(--purple-dark),var(--purple));color:#fff;position:relative;overflow:hidden
+}
+.page-hero:before{
+  content:"";position:absolute;width:500px;height:500px;border:1px solid rgba(52,187,218,.22);
+  border-radius:50%;right:-170px;top:-170px
+}
+.page-hero-copy{max-width:700px;position:relative;z-index:2}
+.page-hero h1{font-family:'Tenso','Montserrat',sans-serif;font-weight:300;font-size:clamp(50px,6vw,82px);line-height:.98;letter-spacing:-.05em;margin:0 0 22px}
+.page-hero h1 em{color:#aee8f1;font-style:italic}
+.page-hero p{max-width:620px;color:#e9e7f2;font-size:16px;line-height:1.8}
+.page-hero-art{display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.page-hero-art>div{
+  width:min(410px,100%);height:250px;border-radius:32px;background:#fff;
+  border:10px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.2);
+  background-image:url('assets/heritage-logo.png');background-size:78% auto;background-position:center;background-repeat:no-repeat;
+  display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px
+}
+.page-hero-art span,.page-hero-art strong{display:none}
+
+.content-section{padding:105px 7vw}
+.content-section.cream{background:var(--grey)}
+.content-section.white{background:#fff}
+.content-intro{max-width:900px;margin-bottom:38px}
+.content-intro h2{font-family:'Tenso','Montserrat',sans-serif;font-weight:300;font-size:clamp(42px,5vw,68px);line-height:1;letter-spacing:-.045em;color:var(--purple-dark);margin:0 0 18px}
+.content-intro h2 em{color:var(--purple);font-style:italic}
+.content-intro p{font-size:15px;color:var(--muted);max-width:690px;line-height:1.8}
+
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.detail-card{border:1px solid var(--line);background:#fff;border-radius:18px;padding:25px;min-height:175px}
+.detail-card:hover{box-shadow:var(--shadow);border-color:#c9c2e5}
+.detail-card h3{font-family:'Tenso','Montserrat',sans-serif;font-size:23px;font-weight:500;color:var(--purple-dark);margin:12px 0 7px}
+.detail-card p{font-size:12px;color:var(--muted);line-height:1.7}
+.card-icon{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--soft-cyan);color:var(--purple);font-size:12px;font-weight:900}
+
+.editorial-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center}
+.editorial-grid h2,.story-copy h2{font-family:'Tenso','Montserrat',sans-serif;font-weight:300;font-size:clamp(44px,5vw,70px);line-height:1;letter-spacing:-.045em;color:var(--purple-dark);margin:0 0 20px}
+.editorial-grid h2 em,.story-copy h2 em{color:var(--purple);font-style:italic}
+.editorial-grid p,.story-copy p{color:var(--muted);font-size:15px;line-height:1.8}
+.editorial-visual{
+  min-height:390px;border-radius:28px;background:
+  linear-gradient(135deg,rgba(51,33,115,.35),rgba(52,187,218,.2)),
+  url('assets/brand-imagery/care-team.jpeg') center/cover no-repeat;
+  display:flex;align-items:end;padding:28px;position:relative;overflow:hidden
+}
+.editorial-visual:after{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(255,255,255,.35);border-radius:50%;right:-90px;top:-80px}
+.visual-label{position:relative;z-index:2;color:#fff;font-family:'Tenso','Montserrat',sans-serif;font-size:39px;line-height:.95}
+.visual-label small{display:block;font-family:inherit;font-size:9px;letter-spacing:.16em;margin-bottom:8px;color:#d7f6fb}
+
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.resource-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.resource-art{height:160px;background:linear-gradient(135deg,var(--soft-purple),var(--soft-cyan));position:relative}
+.resource-art:after{content:"H";position:absolute;font-family:Georgia,serif;color:rgba(92,77,155,.18);font-size:130px;right:25px;bottom:-25px}
+.resource-card>div:last-child{padding:22px}
+.resource-card small{color:var(--purple);font-size:9px;font-weight:900;letter-spacing:.14em}
+.resource-card h3{font-size:18px;line-height:1.3;color:var(--purple-dark);margin:9px 0 15px}
+.resource-card a{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--purple)}
+
+.job-search{display:grid;grid-template-columns:1fr 220px auto;gap:10px;margin:30px 0}
+.job-search input,.job-search select{border:1px solid var(--line);padding:14px;border-radius:10px;background:#fff}
+.jobs{display:grid;gap:10px}
+.job{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.job h3{margin:0;color:var(--purple-dark);font-size:18px}
+.job p{margin:4px 0 0;color:var(--muted);font-size:11px}
+
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:start}
+.contact-details h2{font-family:'Tenso','Montserrat',sans-serif;font-weight:300;font-size:clamp(45px,5vw,70px);line-height:.98;color:var(--purple-dark);margin:0 0 18px}
+.contact-details h2 em{color:var(--purple)}
+.contact-details>p{color:var(--muted);font-size:15px;line-height:1.8}
+.contact-detail{padding:18px 0;border-top:1px solid var(--line)}
+.contact-detail strong,.contact-detail span{display:block}.contact-detail strong{color:var(--purple-dark);font-size:10px;text-transform:uppercase;letter-spacing:.12em}.contact-detail span{font-size:14px;margin-top:5px}
+.contact-form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.contact-form label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:var(--purple-dark);margin:14px 0 6px}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:12px;background:#fff;outline:none}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(52,187,218,.12)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.footer{background:var(--black);color:#fff;padding:55px 7vw 20px}
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:30px;padding-bottom:35px;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer-brand .brand-logo{width:210px;filter:brightness(0) invert(1) saturate(0)}
+.footer-top p{color:#d8d5e2;font-size:14px;margin:0}
+.back-top{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan)}
+.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:38px 0}
+.footer-grid h4{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--pink);margin:0 0 14px}
+.footer-grid a,.footer-grid span{display:block;color:#d6d3df;font-size:11px;margin:8px 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:flex;justify-content:space-between;color:#9e9aa9;font-size:9px}
+
+.section-kicker{color:var(--purple);margin-bottom:10px}
+.editorial-grid .section-kicker{color:var(--cyan)}
+.reveal{opacity:0;transform:translateY(16px);transition:.7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1050px){
+  .desktop-nav{gap:18px}.desktop-nav a{font-size:11px}
+  .header-actions .phone-link{display:none}
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+  .locations-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:800px){
+  .site-header{height:80px;padding:0 5vw}.brand-logo{width:175px}
+  .desktop-nav{display:none}.menu-toggle{display:block}
+  .header-actions{margin-left:auto}
+  .hero,.page-hero{grid-template-columns:1fr;padding:65px 6vw}
+  .hero{min-height:auto}.hero-visual{margin-top:50px}
+  .image-frame{min-height:430px}.image-placeholder{min-height:390px}
+  .page-hero-art{margin-top:35px}.page-hero-art>div{height:210px}
+  .trust-strip{grid-template-columns:repeat(2,1fr)}
+  .trust-strip div:nth-child(2){border-right:0}.trust-strip div{border-bottom:1px solid var(--line)}
+  .finder-grid,.editorial-grid,.contact-grid{grid-template-columns:1fr;gap:45px}
+  .section-heading,.locations-header{display:block}.section-heading>p{margin-top:20px}
+  .locations-header>p{margin-top:20px}.location-search{max-width:none}
+  .locations-grid{grid-template-columns:repeat(2,1fr)}
+  .detail-grid,.resource-grid{grid-template-columns:1fr 1fr}
+  .job-search{grid-template-columns:1fr}.job{align-items:flex-start;flex-direction:column}
+  .footer-top{display:block}.footer-top p{margin:20px 0}
+}
+@media(max-width:560px){
+  .announcement{font-size:9px;gap:8px}.announcement span:nth-child(3){display:none}
+  .brand-logo{width:155px}
+  .header-actions .button{display:none}
+  .hero{padding:55px 5vw}.hero h1{font-size:54px}.hero-copy{font-size:15px}
+  .hero-buttons{flex-direction:column;align-items:flex-start}
+  .image-frame{min-height:350px;padding:12px}.image-placeholder{min-height:325px}
+  .floating-card{right:8px;bottom:15px}
+  .content-section,.services-section,.locations-section,.care-finder-section{padding:75px 5vw}
+  .choice-grid,.detail-grid,.resource-grid,.locations-grid,.form-row{grid-template-columns:1fr}
+  .postcode-row{flex-direction:column}.band{padding:55px 5vw;display:block}.band .button{margin-top:15px}
+  .footer{padding:45px 5vw 18px}.footer-grid{grid-template-columns:1fr 1fr}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:8px}
+}
+
+/* ===== Heritage Healthcare V3 page-completeness layer ===== */
+img{max-width:100%}
+main{display:block}
+section{display:block}
+h1,h2,h3,h4,p{overflow-wrap:break-word}
+
+.dark-section{
+  background:var(--purple-dark)!important;
+  color:#fff!important;
+}
+.dark-section .content-intro h2,
+.dark-section .content-intro h2 em{color:#fff}
+.dark-section .content-intro p{color:#e5e2ef}
+.pillars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.pillar{
+  padding:26px;border:1px solid rgba(255,255,255,.18);border-radius:18px;
+  background:rgba(255,255,255,.06);
+}
+.pillar>span{color:var(--cyan);font-size:10px;font-weight:900;letter-spacing:.12em}
+.pillar h3{color:#fff;font-size:21px;font-weight:600;margin:12px 0 8px}
+.pillar p{color:#d7d4e2;font-size:12px;line-height:1.7;margin:0}
+
+.timeline{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+}
+.timeline article{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;
+}
+.timeline article>strong{color:var(--cyan);font-size:10px;letter-spacing:.12em}
+.timeline article h3{color:var(--purple-dark);font-size:20px;margin:12px 0 8px}
+.timeline article p{color:var(--muted);font-size:12px;line-height:1.7;margin:0}
+
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+.stat-card strong{display:block;font-size:34px;color:var(--purple)}
+.stat-card span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px}
+.feature-card h3{color:var(--purple-dark);margin:10px 0 7px}
+.feature-card p{color:var(--muted);font-size:12px;line-height:1.7}
+
+.faq{border-top:1px solid var(--line);padding:0}
+.faq button{
+  width:100%;border:0;background:transparent;padding:20px 0;text-align:left;
+  display:flex;justify-content:space-between;align-items:center;color:var(--purple-dark);font-weight:800
+}
+.faq p{display:none;color:var(--muted);font-size:13px;padding:0 0 20px;margin:0}
+.faq.open p{display:block}
+
+.form-message{display:none;margin-top:14px;padding:12px;border-radius:10px;background:var(--soft-cyan);color:var(--purple-dark);font-size:12px}
+
+@media(max-width:800px){
+  .pillars,.timeline,.stats-grid,.feature-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .pillars,.timeline,.stats-grid,.feature-grid{grid-template-columns:1fr}
+}
+
+/* Prevent an unstyled flash from leaving the navigation/logo floating above content. */
+.site-header .brand-logo,.footer .brand-logo{height:auto}
+
+</style>
 </head>
 <body>
 <div class="announcement"><span>★★★★★ Rated Excellent in Homecare</span><span class="announcement-sep">•</span><span>20+ locations across the UK</span><a href="care-finder.html">Find care near you →</a></div><header class="site-header" id="top">
@@ -70,6 +478,6 @@
   <div class="footer-bottom"><span>© 2026 Heritage Healthcare. All rights reserved.</span><span>Privacy · Cookies · Accessibility</span></div>
 <div style="text-align:center;padding:12px 20px;border-top:1px solid rgba(255,255,255,.08);font-size:9px"><a href="crm-login.html" style="color:inherit;text-decoration:none;opacity:.7">Heritage Healthcare CRM Login</a></div></footer>
 <script>window.HERITAGE_ROUTING={"national":{"name":"National Office","email":"care@heritagehealthcare.co.uk","phone":"0333 004 0277"},"offices":{"north-east":{"name":"North East","email":"care@northeast.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"North East Heritage Healthcare","postcodes":["NE1","NE2","NE3","NE4","NE5","NE6","NE7","NE8","NE9","NE10","NE11","NE12","NE13","NE15","NE16","NE21","NE22","NE23","NE24","NE25","NE26","NE27","NE28","NE29","NE30","NE31","NE32","NE33","NE34","NE35","NE36","NE37","NE38","NE39","NE40","NE41","NE42","NE43","NE44","NE45","NE46","NE47","NE48","NE49"]},"north-tyneside-south-northumberland":{"name":"North Tyneside & South Northumberland","email":"care@northtyneside.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"North Tyneside & South Northumberland Heritage Healthcare","postcodes":["NE23","NE24","NE25","NE26","NE27","NE28","NE29","NE30","NE31","NE32","NE33","NE34","NE35","NE36","NE37"]},"cheadle-wilmslow":{"name":"Cheadle & Wilmslow","email":"care@cheadlewilmslow.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Cheadle & Wilmslow Heritage Healthcare","postcodes":["SK8","SK9","SK10","SK11"]},"rochdale":{"name":"Rochdale","email":"info@rochdale.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Rochdale Heritage Healthcare","postcodes":["OL11","OL12","OL15","OL16","OL10"]},"trafford-cheshire":{"name":"Trafford & Cheshire","email":"care@traffordcheshire.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Trafford & Cheshire Heritage Healthcare","postcodes":["M16","M17","M31","M32","WA13","WA14","WA15","WA16","WA3","WA4","WA5","WA6","WA7","WA8","WA9","WA10","WA13","WA14","WA15"]},"barnsley":{"name":"Barnsley","email":"care@barnsley.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Barnsley Heritage Healthcare","postcodes":["S70","S71","S72","S73","S74","S75","S76"]},"kirklees":{"name":"Kirklees","email":"care@kirklees.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Kirklees Heritage Healthcare","postcodes":["HD1","HD2","HD3","HD4","HD5","HD6","HD7","HD8","HD9","WF12","WF13","WF14","WF15","WF16","WF17"]},"northallerton-richmond-north-yorkshire":{"name":"Northallerton & Richmond (North Yorkshire)","email":"care@northallertonrichmond.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Northallerton & Richmond (North Yorkshire) Heritage Healthcare","postcodes":["DL6","DL7","DL8","DL9","DL10","DL11","DL12","DL13","DL14","DL15","DL16","DL17","YO7","YO18","YO21","YO22"]},"wakefield":{"name":"Wakefield","email":"care@wakefield.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Wakefield Heritage Healthcare","postcodes":["WF1","WF2","WF3","WF4","WF5","WF6","WF7","WF8","WF9","WF10","WF11","WF12","WF13","WF14","WF15","WF16","WF17"]},"york":{"name":"York","email":"yorkoffice@heritagehealthcare.co.uk","phone":"0333 004 0277","address":"York Heritage Healthcare","postcodes":["YO1","YO10","YO19","YO23","YO24","YO25","YO26","YO30","YO31","YO32"]},"leicester":{"name":"Leicester","email":"care@leicester.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Leicester Heritage Healthcare","postcodes":["LE1","LE2","LE3","LE4","LE5","LE6","LE7","LE8","LE9","LE10","LE11","LE12","LE14","LE15","LE16","LE17","LE18","LE19"]},"milton-keynes":{"name":"Milton Keynes","email":"care@miltonkeynes.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Milton Keynes Heritage Healthcare","postcodes":["MK1","MK2","MK3","MK4","MK5","MK6","MK7","MK8","MK9","MK10","MK11","MK12","MK13","MK14","MK15","MK16","MK17","MK18","MK19"]},"northampton":{"name":"Northampton","email":"care@northampton.heritagehealthcare.co.uk","phone":"01604 816 425","address":"Unit 3, Priory South Industrial Park, 11 Upper Priory Road, Northampton, NN1 2PT","postcodes":["NN1","NN2","NN3","NN4","NN5","NN6","NN7","NN8","NN9","NN10","NN11","NN12","NN13","NN14","NN15","NN16","NN17","NN18","NN29","NN55"]},"st-albans-watford":{"name":"St Albans & Watford","email":"care@stalbanswatford.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"St Albans & Watford Heritage Healthcare","postcodes":["AL1","AL2","AL3","AL4","AL5","AL6","AL7","AL8","AL9","AL10","WD1","WD2","WD3","WD4","WD5","WD6","WD7","WD17","WD18","WD19","WD23","WD24","WD25"]},"coventry":{"name":"Coventry","email":"care@coventry.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Coventry Heritage Healthcare","postcodes":["CV1","CV2","CV3","CV4","CV5","CV6","CV7"]},"birmingham-south":{"name":"Birmingham South","email":"care@birminghamsouth.heritagehealthcare.co.uk","phone":"0121 812 8810","address":"262\u2013264 Baldwins Lane, Birmingham, B28 0XB","postcodes":["B26","B27","B28","B29","B30","B31","B32","B33","B34","B35","B36","B37","B38","B40","B45","B47","B48"]},"windsor":{"name":"Windsor","email":"care@windsor.heritagehealthcare.co.uk","phone":"01753 847 679","address":"Claremont House, 70\u201372 Alma Road, Windsor, Berkshire, SL4 3EZ","postcodes":["SL1","SL2","SL3","SL4","SL5","SL6"]},"bristol":{"name":"Bristol","email":"care@bristol.heritagehealthcare.co.uk","phone":"01454 808 053","address":"Town Square Office 2B, The Willow Brook Centre, Bradley Stoke, Bristol, BS32 8EF","postcodes":["BS1","BS2","BS3","BS4","BS5","BS6","BS7","BS8","BS9","BS10","BS11","BS13","BS14","BS15","BS16","BS20","BS21","BS22","BS23","BS24","BS30","BS31","BS32","BS34","BS35","BS36","BS37","BS39","BS40","BS41","BS48"]},"basildon":{"name":"Basildon","email":"care@basildon.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Basildon Heritage Healthcare","postcodes":["SS1","SS2","SS3","SS4","SS5","SS6","SS7","SS8","SS9","SS10","SS11","SS12","SS13","SS14","SS15","SS16","SS17"]},"ealing-coming-soon":{"name":"Ealing \u2013 Coming Soon","email":"","phone":"","address":"","postcodes":[]},"hounslow-richmond":{"name":"Hounslow \u2013 Richmond","email":"care@hounslowrichmond.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Hounslow \u2013 Richmond Heritage Healthcare","postcodes":["TW1","TW2","TW3","TW4","TW5","TW6","TW7","TW8","TW9","TW10","TW11","TW12","TW13","TW14","TW15","TW16","TW17","TW18","TW19","TW20"]},"wandsworth":{"name":"Wandsworth","email":"care@wandsworth.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Wandsworth Heritage Healthcare","postcodes":["SW4","SW8","SW11","SW12","SW15","SW16","SW17","SW18","SW19","SW20"]},"cardiff":{"name":"Cardiff","email":"care@cardiff.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Cardiff Heritage Healthcare","postcodes":["CF1","CF2","CF3","CF4","CF5","CF10","CF11","CF14","CF15","CF23","CF24"]},"swansea":{"name":"Swansea","email":"care@swansea.heritagehealthcare.co.uk","phone":"0333 004 0277","address":"Swansea Heritage Healthcare","postcodes":["SA1","SA2","SA3","SA4","SA5","SA6","SA7","SA8","SA9","SA10","SA11","SA12","SA13","SA14","SA15","SA18"]}}};</script>
-<script src="script.js"></script>\n<script src="navigation.js"></script>
+<script src="./script.js?v=20260813"></script>\n<script src="./navigation.js?v=20260813"></script>
 <script src="routing.js"></script>
 </body></html>

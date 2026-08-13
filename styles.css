@@ -340,3 +340,67 @@ button{cursor:pointer}
   .postcode-row{flex-direction:column}.band{padding:55px 5vw;display:block}.band .button{margin-top:15px}
   .footer{padding:45px 5vw 18px}.footer-grid{grid-template-columns:1fr 1fr}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:8px}
 }
+
+/* ===== Heritage Healthcare V3 page-completeness layer ===== */
+img{max-width:100%}
+main{display:block}
+section{display:block}
+h1,h2,h3,h4,p{overflow-wrap:break-word}
+
+.dark-section{
+  background:var(--purple-dark)!important;
+  color:#fff!important;
+}
+.dark-section .content-intro h2,
+.dark-section .content-intro h2 em{color:#fff}
+.dark-section .content-intro p{color:#e5e2ef}
+.pillars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.pillar{
+  padding:26px;border:1px solid rgba(255,255,255,.18);border-radius:18px;
+  background:rgba(255,255,255,.06);
+}
+.pillar>span{color:var(--cyan);font-size:10px;font-weight:900;letter-spacing:.12em}
+.pillar h3{color:#fff;font-size:21px;font-weight:600;margin:12px 0 8px}
+.pillar p{color:#d7d4e2;font-size:12px;line-height:1.7;margin:0}
+
+.timeline{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+}
+.timeline article{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;
+}
+.timeline article>strong{color:var(--cyan);font-size:10px;letter-spacing:.12em}
+.timeline article h3{color:var(--purple-dark);font-size:20px;margin:12px 0 8px}
+.timeline article p{color:var(--muted);font-size:12px;line-height:1.7;margin:0}
+
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+.stat-card strong{display:block;font-size:34px;color:var(--purple)}
+.stat-card span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px}
+.feature-card h3{color:var(--purple-dark);margin:10px 0 7px}
+.feature-card p{color:var(--muted);font-size:12px;line-height:1.7}
+
+.faq{border-top:1px solid var(--line);padding:0}
+.faq button{
+  width:100%;border:0;background:transparent;padding:20px 0;text-align:left;
+  display:flex;justify-content:space-between;align-items:center;color:var(--purple-dark);font-weight:800
+}
+.faq p{display:none;color:var(--muted);font-size:13px;padding:0 0 20px;margin:0}
+.faq.open p{display:block}
+
+.form-message{display:none;margin-top:14px;padding:12px;border-radius:10px;background:var(--soft-cyan);color:var(--purple-dark);font-size:12px}
+
+@media(max-width:800px){
+  .pillars,.timeline,.stats-grid,.feature-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .pillars,.timeline,.stats-grid,.feature-grid{grid-template-columns:1fr}
+}
+
+/* Prevent an unstyled flash from leaving the navigation/logo floating above content. */
+.site-header .brand-logo,.footer .brand-logo{height:auto}
