@@ -607,3 +607,7 @@ a.location-item{color:var(--purple-dark)}
   .site-header .brand{min-width:0}
   .site-header .brand-logo{width:175px!important;max-width:175px!important}
 }
+
+.care-path-card{position:relative;text-decoration:none;color:inherit;display:block;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.care-path-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(51,34,115,.09);border-color:rgba(51,34,115,.25)}
+.care-path-card .care-path-arrow{position:absolute;right:20px;bottom:18px;color:var(--purple,#332173);font-weight:800;font-size:16px}
