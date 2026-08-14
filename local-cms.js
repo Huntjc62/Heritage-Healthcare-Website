@@ -62,6 +62,7 @@
       if(!item)item={id:"local-"+Date.now(),title:"",slug:"",category:"Local Advice",excerpt:"",content:"",status:"draft",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
       const fields=["title","slug","category","excerpt","content","seoTitle","seoDescription"];
       fields.forEach(k=>{const el=document.querySelector("#"+k);if(!el)return;if(k==="content")el.innerHTML=item[k]||"";else el.value=item[k]||""});
+      const fk=document.querySelector("#focusKeyword"); if(fk) fk.value=item.focusKeyword||"";
       document.querySelector("#status").value=item.status;
       const update=()=>{
         document.querySelector("#preview-title").textContent=document.querySelector("#title").value||"Your local article";
@@ -69,6 +70,8 @@
         document.querySelector("#preview-body").innerHTML=document.querySelector("#content").innerHTML||"<p>Your article content will appear here.</p>";
       };
       document.querySelectorAll("#title,#excerpt,#content").forEach(e=>e.addEventListener("input",update));
+      if(window.HeritageSEO) HeritageSEO.init({content:"#content",title:"#seoTitle",meta:"#seoDescription",keyword:"#focusKeyword",liveKeyword:"#seo-keyword-live"});
+      document.querySelector("#seo-keyword-live")?.addEventListener("input",e=>{const k=document.querySelector("#focusKeyword");if(k)k.value=e.target.value;});
       document.querySelectorAll("[data-editor-toolbar] button").forEach(btn=>btn.addEventListener("mousedown",e=>e.preventDefault()));
       document.querySelectorAll("[data-editor-toolbar] button").forEach(btn=>btn.addEventListener("click",()=>{
         document.querySelector("#content").focus();
@@ -78,7 +81,7 @@
       update();
       const persist=status=>{
         const title=document.querySelector("#title").value.trim();if(!title){alert("Please add a title.");return}
-        const now=new Date().toISOString(),next={...item,title,slug:document.querySelector("#slug").value.trim()||slugify(title),category:document.querySelector("#category").value.trim()||"Local Advice",excerpt:document.querySelector("#excerpt").value.trim(),content:document.querySelector("#content").innerHTML.trim(),seoTitle:document.querySelector("#seoTitle").value.trim(),seoDescription:document.querySelector("#seoDescription").value.trim(),status,updatedAt:now,publishedAt:status==="published"?(item.publishedAt||now):item.publishedAt,officeId:office};
+        const now=new Date().toISOString(),next={...item,title,slug:document.querySelector("#slug").value.trim()||slugify(title),category:document.querySelector("#category").value.trim()||"Local Advice",excerpt:document.querySelector("#excerpt").value.trim(),content:document.querySelector("#content").innerHTML.trim(),seoTitle:document.querySelector("#seoTitle").value.trim(),seoDescription:document.querySelector("#seoDescription").value.trim(),focusKeyword:(document.querySelector("#focusKeyword")?.value||"").trim(),status,updatedAt:now,publishedAt:status==="published"?(item.publishedAt||now):item.publishedAt,officeId:office};
         const arr=getBlogs(office),idx=arr.findIndex(x=>x.id===next.id);if(idx>=0)arr[idx]=next;else arr.push(next);setBlogs(office,arr);toast(status==="published"?"Published":"Draft saved");setTimeout(()=>location.href="local-cms.html",350);
       };
       document.querySelector("#save-draft").onclick=()=>persist("draft");document.querySelector("#publish").onclick=()=>persist("published");

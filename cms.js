@@ -148,6 +148,7 @@
       document.querySelector("#content").innerHTML=item.content||"";
       document.querySelector("#seo-title").value=item.seoTitle;
       document.querySelector("#seo-description").value=item.seoDescription;
+      const fk=document.querySelector("#focus-keyword"); if(fk) fk.value=item.focusKeyword||"";
       document.querySelector("#status").value=item.status;
       const existing=!!id;
       const updatePreview=()=>{
@@ -157,6 +158,8 @@
         document.querySelector("#preview-body").innerHTML=document.querySelector("#content").innerHTML||"<p>Your content will appear here.</p>";
       };
       document.querySelectorAll("#title,#excerpt,#content").forEach(el=>el.addEventListener("input",updatePreview));
+      if(window.HeritageSEO) HeritageSEO.init({content:"#content",title:"#seo-title",meta:"#seo-description",keyword:"#focus-keyword",liveKeyword:"#seo-keyword-live"});
+      document.querySelector("#seo-keyword-live")?.addEventListener("input",e=>{const k=document.querySelector("#focus-keyword");if(k)k.value=e.target.value;});
       document.querySelectorAll("[data-editor-toolbar] button").forEach(btn=>btn.addEventListener("mousedown",e=>e.preventDefault()));
       document.querySelectorAll("[data-editor-toolbar] button").forEach(btn=>btn.addEventListener("click",()=>{
         document.querySelector("#content").focus();
@@ -175,7 +178,7 @@
         const next={
           ...item,title,slug,category:document.querySelector("#category").value.trim()||"Care",
           excerpt:document.querySelector("#excerpt").value.trim(),content:document.querySelector("#content").innerHTML.trim(),
-          seoTitle:document.querySelector("#seo-title").value.trim(),seoDescription:document.querySelector("#seo-description").value.trim(),
+          seoTitle:document.querySelector("#seo-title").value.trim(),seoDescription:document.querySelector("#seo-description").value.trim(),focusKeyword:(document.querySelector("#focus-keyword")?.value||"").trim(),
           status,updatedAt:now,publishedAt:status==="published"?(item.publishedAt||now):item.publishedAt
         };
         const target=db[type==="blog"?"blogs":"guides"];

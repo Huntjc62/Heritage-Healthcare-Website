@@ -90,3 +90,14 @@ body.cms-body{margin:0;background:var(--bg);color:var(--text);font-family:'Monts
 .rich-editor h1{font-size:34px}.rich-editor h2{font-size:27px}.rich-editor h3{font-size:21px}.rich-editor h4{font-size:17px}
 .rich-editor p{margin:.7em 0}.rich-editor ul,.rich-editor ol{padding-left:25px}
 .editor-help{font-size:9px;color:#68677a;margin-top:7px;line-height:1.5}
+
+.seo-ranker{margin-top:18px;background:#fff;border:1px solid #dfe2e5;border-radius:15px;padding:20px}
+.seo-ranker-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:15px}
+.seo-ranker-head h3{font:500 23px Georgia,serif;color:#332173;margin:0}.seo-ranker-head p{font-size:9px;color:#68677a;margin:4px 0 0}
+.seo-score{width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f1f3f3;border:6px solid #dfe2e5;flex:0 0 auto}
+.seo-score strong{font:500 23px Georgia,serif;color:#332173}.seo-score small{font-size:8px;color:#68677a;margin-left:1px}
+.seo-score.good{border-color:#43aa82}.seo-score.mid{border-color:#e0b64c}.seo-score.low{border-color:#d97878}
+.seo-bar{height:8px;background:#eceeef;border-radius:99px;overflow:hidden;margin:0 0 15px}.seo-bar span{display:block;height:100%;width:0;background:#34bbda;border-radius:99px;transition:width .25s ease}
+.seo-keyword{display:grid;grid-template-columns:1fr 160px;gap:10px;margin-bottom:15px}.seo-keyword label{font-size:8px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:#68677a;display:block;margin-bottom:6px}.seo-keyword input{width:100%;box-sizing:border-box;border:1px solid #dfe2e5;border-radius:8px;padding:10px;font-size:11px}
+.seo-checks{display:grid;grid-template-columns:1fr 1fr;gap:7px 15px}.seo-check{display:flex;gap:8px;align-items:flex-start;font-size:9px;color:#555263;line-height:1.45}.seo-dot{width:9px;height:9px;border-radius:50%;background:#d5d7da;margin-top:3px;flex:0 0 auto}.seo-check.pass .seo-dot{background:#43aa82}.seo-check.warn .seo-dot{background:#e0b64c}.seo-check.fail .seo-dot{background:#d97878}.seo-suggestions{margin-top:15px;padding-top:13px;border-top:1px solid #eceeef}.seo-suggestions h4{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#332173;margin:0 0 8px}.seo-suggestions ul{margin:0;padding-left:18px}.seo-suggestions li{font-size:9px;color:#68677a;margin:5px 0;line-height:1.5}
+@media(max-width:700px){.seo-checks{grid-template-columns:1fr}.seo-keyword{grid-template-columns:1fr}}

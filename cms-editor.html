@@ -33,11 +33,11 @@
 <div id="content" class="rich-editor" contenteditable="true" data-placeholder="Write your content here. Select text or a paragraph, then choose H1, H2, H3 or H4 from the toolbar."></div>
 <div class="editor-help">Use H1 for the main heading, H2 for major sections and H3/H4 for smaller subsections. Use headings to structure the article rather than making ordinary text bold.</div>
 </div>
-<div class="cms-field"><label for="seo-title">SEO title</label><input id="seo-title" placeholder="Page title for Google"></div>
+<div class="cms-field full"><label for="focus-keyword">Primary search topic / keyword</label><input id="focus-keyword" placeholder="e.g. dementia care at home"></div><div class="cms-field"><label for="seo-title">SEO title</label><input id="seo-title" placeholder="Page title for Google"></div>
 <div class="cms-field"><label for="seo-description">SEO description</label><textarea id="seo-description" style="min-height:110px" placeholder="A concise description for search results."></textarea></div>
 <div class="cms-field"><label for="status">Status</label><select id="status"><option value="draft">Draft</option><option value="published">Published</option></select></div>
 </div>
-<div class="cms-help"><strong>Writing tip:</strong> Keep the introduction useful, answer one clear question, use plain English and give the reader a sensible next step. Use a blank line between paragraphs.</div>
+<div class="seo-ranker" id="seo-ranker"><div class="seo-ranker-head"><div><h3>Content SEO score</h3><p>Live editorial assessment based on current Google Search guidance — not a guarantee of rankings.</p></div><div class="seo-score" id="seo-score"><strong id="seo-score-number">0</strong><small>/100</small></div></div><div class="seo-bar"><span id="seo-bar-fill"></span></div><div class="seo-keyword"><div><label for="seo-keyword-live">Primary topic</label><input id="seo-keyword-live" placeholder="Enter a topic to make the score more specific"></div><div><label>Assessment</label><div id="seo-verdict" style="font-size:11px;font-weight:800;color:#332173;padding-top:10px">Start writing to score</div></div></div><div class="seo-checks" id="seo-checks"></div><div class="seo-suggestions"><h4>Suggested improvements</h4><ul id="seo-suggestions"><li>Add your primary topic and start writing to see tailored suggestions.</li></ul></div></div><div class="cms-help"><strong>Writing tip:</strong> Keep the introduction useful, answer one clear question, use plain English and give the reader a sensible next step. Use a blank line between paragraphs.</div>
 <div class="cms-form-actions"><button class="cms-button secondary" id="save-draft">Save draft</button><button class="cms-button cyan" id="publish">Publish to website →</button></div>
 </div>
 <div class="cms-preview">
@@ -46,5 +46,5 @@
 </div>
 </div>
 </section></main></div>
-<div class="cms-toast" id="cms-toast"></div><script src="crm.js?v=20260813-cms1"></script><script src="cms.js?v=20260813-cms1"></script><script src="site-update.js?v=20260813-home5"></script>
+<div class="cms-toast" id="cms-toast"></div><script src="crm.js?v=20260813-cms1"></script><script src="seo-ranker.js?v=20260814-seo1"></script><script src="cms.js?v=20260813-cms1"></script><script src="site-update.js?v=20260813-home5"></script>
 </body></html>
