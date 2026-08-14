@@ -45,12 +45,76 @@
   <div class="page-hero-art"><div><span>HERITAGE</span><strong>HEALTHCARE</strong></div></div>
 </section>
 
-<section class="content-section cream"><div class="content-intro"><div class="section-label">01 / Care Finder</div><h2>Let's find the<br><em>right support.</em></h2><p>You don't need to know exactly what care you need. Answer three simple questions and we'll help you find the best starting point.</p></div>
-<div class="finder-card" style="max-width:900px;margin:auto"><div class="progress"><span id="finder-progress"></span></div>
-<div class="finder-step" data-step="1"><small>STEP 1 OF 3</small><h3>Who are you looking for care for?</h3><div class="choice-grid"><button class="choice" data-next="2">Myself <span>→</span></button><button class="choice" data-next="2">My parent <span>→</span></button><button class="choice" data-next="2">My partner <span>→</span></button><button class="choice" data-next="2">Someone else <span>→</span></button></div></div>
-<div class="finder-step hidden" data-step="2"><small>STEP 2 OF 3</small><h3>What support sounds most useful?</h3><div class="choice-grid"><button class="choice" data-next="3">Personal care <span>→</span></button><button class="choice" data-next="3">Companionship <span>→</span></button><button class="choice" data-next="3">Specialist support <span>→</span></button><button class="choice" data-next="3">I'm not sure <span>→</span></button></div></div>
-<div class="finder-step hidden" data-step="3"><small>STEP 3 OF 3</small><h3>Where do you need care?</h3><div class="postcode-row"><input id="postcode" placeholder="Enter postcode or town"><button class="button button-primary" id="find-location">Find my team →</button></div><p class="finder-result" id="finder-result"></p></div>
-</div></section>
+<section class="content-section cream"><div class="content-intro"><div class="section-label">01 / Care Finder</div><h2>Let's find the<br><em>right support.</em></h2><p>Tell us a little more about the situation. Your answers help the relevant Heritage Healthcare team understand what support may be useful before they contact you.</p></div>
+<div class="finder-card care-finder-form-card" style="max-width:980px;margin:auto">
+<div class="progress"><span id="finder-progress"></span></div>
+<form id="care-finder-form" novalidate>
+<input type="hidden" name="source_office" value="Main website">
+<input type="hidden" name="routing" value="">
+<input type="hidden" name="matched_office" value="">
+<input type="hidden" name="route_email" value="">
+<input type="hidden" name="care_type" value="">
+<div class="finder-step" data-step="1"><small>STEP 1 OF 8</small><h3>Who are you looking for care for?</h3><div class="choice-grid">
+<button type="button" class="choice" data-field="person" data-value="Myself" data-next="2">Myself <span>→</span></button>
+<button type="button" class="choice" data-field="person" data-value="My parent" data-next="2">My parent <span>→</span></button>
+<button type="button" class="choice" data-field="person" data-value="My partner" data-next="2">My partner <span>→</span></button>
+<button type="button" class="choice" data-field="person" data-value="Someone else" data-next="2">Someone else <span>→</span></button></div></div>
+
+<div class="finder-step hidden" data-step="2"><small>STEP 2 OF 8</small><h3>What kind of support are you looking for?</h3><div class="choice-grid">
+<button type="button" class="choice" data-field="care_type" data-value="Personal care" data-next="3">Personal care <span>→</span></button>
+<button type="button" class="choice" data-field="care_type" data-value="Companionship and wellbeing" data-next="3">Companionship &amp; wellbeing <span>→</span></button>
+<button type="button" class="choice" data-field="care_type" data-value="Dementia support" data-next="3">Dementia support <span>→</span></button>
+<button type="button" class="choice" data-field="care_type" data-value="Hospital to home" data-next="3">Hospital to home <span>→</span></button>
+<button type="button" class="choice" data-field="care_type" data-value="Live-in care" data-next="3">Live-in care <span>→</span></button>
+<button type="button" class="choice" data-field="care_type" data-value="Specialist care" data-next="3">Specialist care <span>→</span></button></div></div>
+
+<div class="finder-step hidden" data-step="3"><small>STEP 3 OF 8</small><h3>What is prompting you to look for care now?</h3><div class="choice-grid">
+<button type="button" class="choice" data-field="reason" data-value="Planning ahead" data-next="4">Planning ahead <span>→</span></button>
+<button type="button" class="choice" data-field="reason" data-value="Support needs have increased" data-next="4">Support needs have increased <span>→</span></button>
+<button type="button" class="choice" data-field="reason" data-value="Returning home from hospital" data-next="4">Returning home from hospital <span>→</span></button>
+<button type="button" class="choice" data-field="reason" data-value="Family needs more support" data-next="4">Family needs more support <span>→</span></button>
+<button type="button" class="choice" data-field="reason" data-value="Something has changed suddenly" data-next="4">Something has changed suddenly <span>→</span></button></div></div>
+
+<div class="finder-step hidden" data-step="4"><small>STEP 4 OF 8</small><h3>How often might support be needed?</h3><div class="choice-grid">
+<button type="button" class="choice" data-field="frequency" data-value="Occasionally" data-next="5">Occasionally <span>→</span></button>
+<button type="button" class="choice" data-field="frequency" data-value="A few visits each week" data-next="5">A few visits each week <span>→</span></button>
+<button type="button" class="choice" data-field="frequency" data-value="Daily support" data-next="5">Daily support <span>→</span></button>
+<button type="button" class="choice" data-field="frequency" data-value="Around-the-clock / live-in support" data-next="5">Around-the-clock / live-in <span>→</span></button>
+<button type="button" class="choice" data-field="frequency" data-value="I'm not sure yet" data-next="5">I'm not sure yet <span>→</span></button></div></div>
+
+<div class="finder-step hidden" data-step="5"><small>STEP 5 OF 8</small><h3>What would you most like help with?</h3><p class="finder-question-note">Choose the areas that are most relevant.</p><div class="finder-check-grid">
+<label><input type="checkbox" name="support" value="Personal hygiene"> Personal hygiene</label>
+<label><input type="checkbox" name="support" value="Medication"> Medication</label>
+<label><input type="checkbox" name="support" value="Meals and nutrition"> Meals and nutrition</label>
+<label><input type="checkbox" name="support" value="Getting out and about"> Getting out and about</label>
+<label><input type="checkbox" name="support" value="Household tasks"> Household tasks</label>
+<label><input type="checkbox" name="support" value="Companionship"> Companionship</label>
+<label><input type="checkbox" name="support" value="Mobility"> Mobility</label>
+<label><input type="checkbox" name="support" value="Other / not sure"> Other / not sure</label>
+</div><button type="button" class="button button-primary finder-next" data-next="6">Continue →</button></div>
+
+<div class="finder-step hidden" data-step="6"><small>STEP 6 OF 8</small><h3>How soon would you like to talk to someone?</h3><div class="choice-grid">
+<button type="button" class="choice" data-field="urgency" data-value="As soon as possible" data-next="7">As soon as possible <span>→</span></button>
+<button type="button" class="choice" data-field="urgency" data-value="Within the next few weeks" data-next="7">Within the next few weeks <span>→</span></button>
+<button type="button" class="choice" data-field="urgency" data-value="In the next few months" data-next="7">In the next few months <span>→</span></button>
+<button type="button" class="choice" data-field="urgency" data-value="Just researching for now" data-next="7">Just researching for now <span>→</span></button></div></div>
+
+<div class="finder-step hidden" data-step="7"><small>STEP 7 OF 8</small><h3>Where is care needed?</h3><p class="finder-question-note">Enter the postcode where the person receiving care lives. We'll use this to identify the correct local team.</p>
+<div class="finder-field-row"><label>Postcode<input id="postcode" name="postcode" autocomplete="postal-code" placeholder="e.g. YO24 1AA" required></label></div>
+<p class="finder-result" id="finder-result" aria-live="polite"></p>
+<button type="button" class="button button-primary finder-next" data-next="8" id="postcode-next">Continue →</button></div>
+
+<div class="finder-step hidden" data-step="8"><small>STEP 8 OF 8</small><h3>Where should we send the response?</h3>
+<div class="finder-contact-grid">
+<label>Your name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+<label>Email address<input type="email" name="email" autocomplete="email" required placeholder="you@example.com"></label>
+<label>Phone number<input name="phone" autocomplete="tel" required placeholder="Your phone number"></label>
+<label>Anything else we should know?<textarea name="message" rows="5" placeholder="Tell us anything that would help the care team understand the situation."></textarea></label>
+</div>
+<div class="finder-consent"><label><input type="checkbox" name="consent" required> I agree that Heritage Healthcare can use these details to respond to my care enquiry.</label></div>
+<button type="submit" class="button button-primary" id="finder-submit">Submit &amp; find your team →</button>
+<p class="finder-result" id="finder-submit-result" aria-live="polite"></p></div>
+</form></div></section>
 <section class="band"><div><h2>Prefer to speak to someone?</h2><p>Our team can talk through your situation and explain the options.</p></div><a class="button button-primary" href="contact.html">Contact us →</a></section>
 </main>
 <section class="content-section white reveal"><div class="editorial-grid"><div><div class="section-kicker">You're not expected to know</div><h2>Care terminology<br><em>can be confusing.</em></h2><p>Personal care. Respite. Live-in. Dementia support. Hospital-to-home. There can be a lot to take in when you're already worried about someone you love.</p><p>That's why the first step is simply a conversation. Our care finder is designed to help you organise your thoughts, not make a clinical decision.</p></div><div class="editorial-visual"><div class="visual-label"><small>START SIMPLE</small>One question<br>at a time.</div></div></div></section>
@@ -72,7 +136,8 @@
   <div class="footer-bottom"><span>© 2026 Heritage Healthcare. All rights reserved.</span><span>Privacy · Cookies · Accessibility</span></div>
 <div style="text-align:center;padding:12px 20px;border-top:1px solid rgba(255,255,255,.08);font-size:9px"><a href="crm-login.html" style="color:inherit;text-decoration:none;opacity:.7">Heritage Healthcare CRM Login</a></div></footer>
 <script src="postcode-routing-data.js?v=20260814-routing1"></script>
-<script src="./script.js?v=20260813"></script>\n<script src="./navigation.js?v=20260813"></script>
-<script src="routing.js"></script>
+<script src="routing.js?v=20260814-routing2"></script>
+<script src="care-finder.js?v=20260814-finder2"></script>
+<script src="./navigation.js?v=20260813"></script>
 <script src="./site-update.js?v=20260813-cms1"></script>
 </body></html>

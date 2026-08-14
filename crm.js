@@ -73,6 +73,8 @@
     // Shared UI.
     document.querySelectorAll("[data-user-name]").forEach(el => el.textContent = current.name);
     document.querySelectorAll("[data-office-name]").forEach(el => el.textContent = current.role === "national" ? "National Office" : officeName(current.officeId));
+    document.querySelectorAll("[data-national-only]").forEach(el => el.style.display = current.role === "national" ? "" : "none");
+    document.querySelectorAll("[data-future-leads-card]").forEach(el => el.style.display = current.role === "national" ? "" : "none");
     document.querySelectorAll("[data-logout]").forEach(el => el.addEventListener("click", e => {
       e.preventDefault(); localStorage.removeItem(SESSION); location.href = "crm-login.html";
     }));
@@ -101,6 +103,7 @@
       document.querySelector("[data-stat=new]")?.replaceChildren(document.createTextNode(byStatus("new")));
       document.querySelector("[data-stat=assessment]")?.replaceChildren(document.createTextNode(byStatus("assessment")));
       document.querySelector("[data-stat=started]")?.replaceChildren(document.createTextNode(byStatus("care-started")));
+      document.querySelector("[data-stat=future-leads]")?.replaceChildren(document.createTextNode((db.leads||[]).filter(l=>l.status==="future-follow-up").length));
       const tbody = document.querySelector("#recent-enquiries");
       if (!tbody) return;
       tbody.innerHTML = list.slice().sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).slice(0,8).map(e => `
@@ -112,6 +115,16 @@
           <td>${new Date(e.createdAt).toLocaleDateString("en-GB")}</td>
         </tr>`).join("") || `<tr><td colspan="5">No enquiries yet.</td></tr>`;
     };
+
+    if (page === "future-leads") {
+      if (current.role !== "national") {
+        document.querySelector(".crm-content").innerHTML = '<section class="crm-section"><div class="crm-card"><h2>National Office only</h2><p style="font-size:12px;line-height:1.7;color:#718083">Future coverage leads are managed by National Office.</p></div></section>';
+      } else {
+        const tbody=document.querySelector("#future-lead-list");
+        const leads=(db.leads||[]).filter(l=>l.status==="future-follow-up").sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
+        tbody.innerHTML=leads.map(l=>`<tr><td><strong>${moneySafe(l.name)}</strong><br><small>${moneySafe(l.email)} · ${moneySafe(l.phone)}</small></td><td>${moneySafe(l.postcode)}</td><td>${moneySafe(l.careType)}</td><td>${moneySafe(l.urgency)}</td><td>${new Date(l.createdAt).toLocaleDateString("en-GB")}</td><td><span class="crm-badge status-new">Future follow-up</span></td></tr>`).join("") || '<tr><td colspan="6">No future coverage leads yet.</td></tr>';
+      }
+    }
 
     if (page === "dashboard") renderDashboard();
 
