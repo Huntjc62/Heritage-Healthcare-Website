@@ -94,11 +94,29 @@
 
   form.addEventListener("submit",e=>{
     e.preventDefault();
-    route=window.HeritageRouting?.findOffice(postcode.value);
-    if(!route||route.status==="invalid"){
-      showStep(7); result.className="finder-result show error"; result.textContent="Please enter a valid UK postcode."; return;
+
+    submitResult.className="finder-result";
+    submitResult.innerHTML="";
+
+    // Give the user a visible explanation rather than silently relying on
+    // browser validation when a required field has been missed.
+    if(!form.checkValidity()){
+      const firstInvalid=form.querySelector(":invalid");
+      if(firstInvalid){
+        firstInvalid.focus();
+        submitResult.className="finder-result show error";
+        submitResult.innerHTML="<strong>Please complete the highlighted details.</strong><span>We need your name, email, phone number, postcode and consent before we can send the enquiry.</span>";
+      }
+      return;
     }
-    if(!form.reportValidity())return;
+
+    route=window.HeritageRouting?.findOffice(postcode.value);
+    if(!route || route.status==="invalid"){
+      showStep(7);
+      result.className="finder-result show error";
+      result.innerHTML="<strong>We couldn't verify that postcode.</strong><span>Please enter a full UK postcode, for example YO24 1AA.</span>";
+      return;
+    }
 
     field("message",buildMessage());
     field("source_office","Main website");
@@ -106,20 +124,36 @@
     field("matched_office",route.office?.name||"National Office");
     field("route_email",route.office?.email||"care@heritagehealthcare.co.uk");
 
+    const submitButton=form.querySelector("#finder-submit");
+    if(submitButton)submitButton.disabled=true;
+
     if(route.status==="local" || route.status==="local-no-email"){
       crmId=window.HeritageRouting?.saveToCRM(route,form);
       const page=officePage(route.office.slug);
+
+      // Always give immediate feedback, then take the visitor to the local
+      // office page automatically. The CRM capture happens before redirect.
       submitResult.className="finder-result show";
-      submitResult.innerHTML=`<strong>We've found your local Heritage Healthcare team.</strong><span>Your requirements have been sent to the ${escape(route.office.name)} CRM for the team to review.</span><div class="finder-result-actions"><a class="button button-primary" href="${page}">View your local team →</a></div>`;
-      form.querySelector("#finder-submit").disabled=true;
+      submitResult.innerHTML=`<strong>✓ We've found your local Heritage Healthcare team.</strong><span>Your care requirements have been sent to ${escape(route.office.name)} and saved as a new CRM enquiry.</span><span>Taking you to your local team now…</span>`;
+
+      window.setTimeout(()=>{
+        window.location.href=page;
+      },1400);
       return;
     }
 
-    // No verified coverage: show the choice to create a future follow-up lead.
+    // No verified coverage: do not create an enquiry for a local office.
+    // Instead offer an explicit National Office future-follow-up lead.
     submitResult.className="finder-result show warning";
     submitResult.innerHTML=`<strong>I'm afraid we don't currently cover ${escape(postcode.value.trim())}.</strong><span>We don't currently have a verified Heritage Healthcare team covering this postcode. Would you like us to keep your details as a future follow-up lead and get in touch when we do?</span><div class="finder-result-actions"><button type="button" class="button button-primary finder-followup-btn" id="followup-yes">Yes — contact me in future →</button><button type="button" class="button button-secondary" id="followup-no">No thanks</button></div>`;
+
     document.querySelector("#followup-yes")?.addEventListener("click",saveFollowup,{once:true});
-    document.querySelector("#followup-no")?.addEventListener("click",()=>{submitResult.className="finder-result show";submitResult.innerHTML="<strong>No problem.</strong><span>We haven't stored a future follow-up request. You can contact National Office if you'd like to discuss your options.</span>";},{once:true});
+    document.querySelector("#followup-no")?.addEventListener("click",()=>{
+      submitResult.className="finder-result show";
+      submitResult.innerHTML="<strong>No problem.</strong><span>We haven't stored a future follow-up request. You can contact National Office if you'd like to discuss your options.</span>";
+    },{once:true});
+
+    if(submitButton)submitButton.disabled=false;
   });
 
   function saveFollowup(){
