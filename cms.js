@@ -72,7 +72,7 @@
     window.dispatchEvent(new CustomEvent("heritage-cms-updated"));
   };
   const esc = s => String(s||"").replace(/[<>&"']/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&#039;"}[c]));
-  const textToHtml = s => String(s||"").split(/\n\s*\n/).map(p=>`<p>${esc(p).replace(/\n/g,"<br>")}</p>`).join("");
+  const textToHtml = s => String(s||"");
   const toast = msg => {
     const el=document.querySelector("#cms-toast"); if(!el)return;
     el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2300);
@@ -145,7 +145,7 @@
       document.querySelector("#slug").value=item.slug;
       document.querySelector("#category").value=item.category;
       document.querySelector("#excerpt").value=item.excerpt;
-      document.querySelector("#content").value=item.content;
+      document.querySelector("#content").innerHTML=item.content||"";
       document.querySelector("#seo-title").value=item.seoTitle;
       document.querySelector("#seo-description").value=item.seoDescription;
       document.querySelector("#status").value=item.status;
@@ -154,9 +154,15 @@
         document.querySelector("#preview-kicker").textContent=type==="blog"?"HERITAGE HEALTHCARE · BLOG":"HERITAGE CARE HUB · GUIDE";
         document.querySelector("#preview-title").textContent=document.querySelector("#title").value||"Your title";
         document.querySelector("#preview-excerpt").textContent=document.querySelector("#excerpt").value||"Your introduction will appear here.";
-        document.querySelector("#preview-body").innerHTML=textToHtml(document.querySelector("#content").value)||"<p>Your content will appear here.</p>";
+        document.querySelector("#preview-body").innerHTML=document.querySelector("#content").innerHTML||"<p>Your content will appear here.</p>";
       };
       document.querySelectorAll("#title,#excerpt,#content").forEach(el=>el.addEventListener("input",updatePreview));
+      document.querySelectorAll("[data-editor-toolbar] button").forEach(btn=>btn.addEventListener("mousedown",e=>e.preventDefault()));
+      document.querySelectorAll("[data-editor-toolbar] button").forEach(btn=>btn.addEventListener("click",()=>{
+        document.querySelector("#content").focus();
+        document.execCommand(btn.dataset.cmd,false,btn.dataset.value||null);
+        updatePreview();
+      }));
       updatePreview();
 
       document.querySelector("#save-draft").addEventListener("click",()=>persist("draft"));
@@ -168,7 +174,7 @@
         const now=new Date().toISOString();
         const next={
           ...item,title,slug,category:document.querySelector("#category").value.trim()||"Care",
-          excerpt:document.querySelector("#excerpt").value.trim(),content:document.querySelector("#content").value.trim(),
+          excerpt:document.querySelector("#excerpt").value.trim(),content:document.querySelector("#content").innerHTML.trim(),
           seoTitle:document.querySelector("#seo-title").value.trim(),seoDescription:document.querySelector("#seo-description").value.trim(),
           status,updatedAt:now,publishedAt:status==="published"?(item.publishedAt||now):item.publishedAt
         };

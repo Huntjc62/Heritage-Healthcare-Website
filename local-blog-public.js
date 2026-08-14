@@ -2,7 +2,11 @@
 (() => {
   const KEY="heritageLocalBlogs_v1";
   const esc=s=>String(s||"").replace(/[<>&"']/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&#039;"}[c]));
-  const toHtml=s=>String(s||"").split(/\n\s*\n/).map(p=>`<p>${esc(p).replace(/\n/g,"<br>")}</p>`).join("");
+  const toHtml=s=>{
+      const v=String(s||"");
+      if(/<\s*(h1|h2|h3|h4|p|ul|ol|li|strong|em)\b/i.test(v)) return v.replace(/<script[\s\S]*?<\/script>/gi,"").replace(/\son\w+=(?:"[^"]*"|'[^']*')/gi,"");
+      return v.split(/\n\s*\n/).map(p=>`<p>${esc(p).replace(/\n/g,"<br>")}</p>`).join("");
+    };
   const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}};
   document.addEventListener("DOMContentLoaded",()=>{
     const page=document.querySelector("[data-local-office-id]");if(!page)return;
