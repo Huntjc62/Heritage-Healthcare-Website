@@ -137,7 +137,21 @@
 <div style="text-align:center;padding:12px 20px;border-top:1px solid rgba(255,255,255,.08);font-size:9px"><a href="crm-login.html" style="color:inherit;text-decoration:none;opacity:.7">Heritage Healthcare CRM Login</a></div></footer>
 <script src="postcode-routing-data.js?v=20260814-routing1"></script>
 <script src="routing.js?v=20260814-routing2"></script>
-<script src="care-finder.js?v=20260814-finder3"></script>
+<script src="care-finder.js?v=20260814-finder4"></script>
 <script src="./navigation.js?v=20260813"></script>
 <script src="./site-update.js?v=20260813-cms1"></script>
+
+<div class="coverage-modal" id="coverage-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="coverage-modal-title">
+  <div class="coverage-modal-backdrop" data-close-coverage></div>
+  <div class="coverage-modal-box">
+    <button type="button" class="coverage-modal-close" data-close-coverage aria-label="Close">×</button>
+    <div class="section-label">Care Finder</div>
+    <h2 id="coverage-modal-title">We're sorry, we don't currently cover this area.</h2>
+    <p>We don't currently have a Heritage Healthcare team covering <strong id="uncovered-postcode"></strong>.</p>
+    <p>Please try again later. Our coverage may change as we continue to grow.</p>
+    <div class="coverage-modal-actions">
+      <button type="button" class="button button-primary" data-close-coverage>Try again →</button>
+    </div>
+  </div>
+</div>
 </body></html>

@@ -633,3 +633,13 @@ a.location-item{color:var(--purple-dark)}
 .finder-result a,.finder-result button{display:inline-flex;align-items:center;border:0;text-decoration:none;cursor:pointer}
 .finder-followup-btn{font:inherit}
 @media(max-width:700px){.care-finder-form-card{padding:20px}.finder-step .choice-grid,.finder-check-grid,.finder-field-row,.finder-contact-grid{grid-template-columns:1fr}.finder-contact-grid label:last-child{grid-column:auto}.finder-step h3{font-size:26px}}
+
+.coverage-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px}
+.coverage-modal.open{display:flex}
+.coverage-modal-backdrop{position:absolute;inset:0;background:rgba(24,20,45,.62);backdrop-filter:blur(4px)}
+.coverage-modal-box{position:relative;z-index:1;width:min(560px,100%);background:#fff;border-radius:18px;padding:42px;box-shadow:0 24px 80px rgba(0,0,0,.22);text-align:center}
+.coverage-modal-box h2{font:500 34px Georgia,serif;line-height:1.15;color:#332173;margin:14px 0}
+.coverage-modal-box p{font-size:14px;line-height:1.7;color:#68677a;margin:9px 0}
+.coverage-modal-close{position:absolute;right:16px;top:12px;border:0;background:transparent;font-size:30px;line-height:1;color:#332173;cursor:pointer}
+.coverage-modal-actions{margin-top:24px}
+@media(max-width:600px){.coverage-modal-box{padding:34px 22px}.coverage-modal-box h2{font-size:28px}}

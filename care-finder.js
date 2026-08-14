@@ -10,6 +10,28 @@
   const postcodeNext=document.querySelector("#postcode-next");
   let current=1, route=null, crmId=null;
 
+  const coverageModal=document.querySelector("#coverage-modal");
+  const uncoveredPostcode=document.querySelector("#uncovered-postcode");
+  const openCoverageModal=pc=>{
+    if(uncoveredPostcode)uncoveredPostcode.textContent=String(pc||"").trim().toUpperCase();
+    if(coverageModal){
+      coverageModal.classList.add("open");
+      coverageModal.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+      coverageModal.querySelector("[data-close-coverage]")?.focus();
+    }
+  };
+  const closeCoverageModal=()=>{
+    if(coverageModal){
+      coverageModal.classList.remove("open");
+      coverageModal.setAttribute("aria-hidden","true");
+      document.body.style.overflow="";
+      postcode?.focus();
+    }
+  };
+  document.querySelectorAll("[data-close-coverage]").forEach(el=>el.addEventListener("click",closeCoverageModal));
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&coverageModal?.classList.contains("open"))closeCoverageModal()});
+
   const escape=s=>String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
   const officePages={
     "cheadle-wilmslow":"cheadle-and-wilmslow.html",
@@ -142,15 +164,18 @@
       return;
     }
 
-    // No verified coverage: do not create an enquiry for a local office.
-    // Instead offer an explicit National Office future-follow-up lead.
+    // No verified coverage: show the requested pop-up first.
+    // The existing future-follow-up option remains available after the user
+    // closes the message, so the lead is never silently lost.
+    openCoverageModal(postcode.value);
+
     submitResult.className="finder-result show warning";
-    submitResult.innerHTML=`<strong>I'm afraid we don't currently cover ${escape(postcode.value.trim())}.</strong><span>We don't currently have a verified Heritage Healthcare team covering this postcode. Would you like us to keep your details as a future follow-up lead and get in touch when we do?</span><div class="finder-result-actions"><button type="button" class="button button-primary finder-followup-btn" id="followup-yes">Yes — contact me in future →</button><button type="button" class="button button-secondary" id="followup-no">No thanks</button></div>`;
+    submitResult.innerHTML=`<strong>We don't currently cover this postcode.</strong><span>If you'd like, you can still ask National Office to keep your details for future coverage.</span><div class="finder-result-actions"><button type="button" class="button button-primary finder-followup-btn" id="followup-yes">Yes — contact me in future →</button><button type="button" class="button button-secondary" id="followup-no">No thanks</button></div>`;
 
     document.querySelector("#followup-yes")?.addEventListener("click",saveFollowup,{once:true});
     document.querySelector("#followup-no")?.addEventListener("click",()=>{
       submitResult.className="finder-result show";
-      submitResult.innerHTML="<strong>No problem.</strong><span>We haven't stored a future follow-up request. You can contact National Office if you'd like to discuss your options.</span>";
+      submitResult.innerHTML="<strong>No problem.</strong><span>We haven't stored a future follow-up request. You can try again later.</span>";
     },{once:true});
 
     if(submitButton)submitButton.disabled=false;
