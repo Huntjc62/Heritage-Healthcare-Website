@@ -4,7 +4,7 @@
   const SESSION = "heritageCRM_session";
   const seed = {"enquiries":[{"id":"HH-2026-000184","officeId":"york","sourceOffice":"York","name":"John Smith","email":"john.smith@example.com","phone":"07700 123456","person":"Margaret Smith","postcode":"YO24 1AA","careType":"Personal care","message":"Looking for support following a recent hospital discharge.","status":"new","assignedTo":"york-manager","createdAt":"2026-08-11T09:24:00","notes":[]},{"id":"HH-2026-000185","officeId":"york","sourceOffice":"York","name":"Sarah Jones","email":"sarah.jones@example.com","phone":"07700 234567","person":"Sarah Jones","postcode":"YO30 4AA","careType":"Dementia care","message":"Would like to understand what support is available at home.","status":"contacted","assignedTo":"york-manager","createdAt":"2026-08-10T14:10:00","notes":[{"user":"york-manager","text":"Called family and arranged an initial discussion.","createdAt":"2026-08-10T15:05:00"}]},{"id":"HH-2026-000186","officeId":"birmingham-south","sourceOffice":"Birmingham South","name":"David Brown","email":"david.brown@example.com","phone":"07700 345678","person":"David Brown","postcode":"B28 0XB","careType":"Companionship","message":"Looking for regular companionship and help around the home.","status":"assessment","assignedTo":"birmingham-manager","createdAt":"2026-08-11T08:40:00","notes":[]},{"id":"HH-2026-000187","officeId":"cardiff","sourceOffice":"Cardiff","name":"Emma Williams","email":"emma.williams@example.com","phone":"07700 456789","person":"Robert Williams","postcode":"CF10 3AB","careType":"Respite care","message":"We need some respite support for a family carer.","status":"new","assignedTo":"cardiff-manager","createdAt":"2026-08-11T10:05:00","notes":[]},{"id":"HH-2026-000188","officeId":null,"sourceOffice":"Birmingham South","name":"Peter Green","email":"peter.green@example.com","phone":"07700 567890","person":"Peter Green","postcode":"CV1 2AB","careType":"Personal care","message":"We found the Birmingham page but live in Coventry.","status":"new","assignedTo":"national-admin","createdAt":"2026-08-11T10:25:00","notes":[]}]};
   const users = [{"id":"national-admin","name":"National Admin","email":"admin@heritagehealthcare.co.uk","password":"admin123","role":"national","officeId":null},{"id":"york-manager","name":"York Office Manager","email":"york.manager@heritagehealthcare.co.uk","password":"york123","role":"manager","officeId":"york"},{"id":"birmingham-manager","name":"Birmingham South Manager","email":"birmingham.manager@heritagehealthcare.co.uk","password":"bham123","role":"manager","officeId":"birmingham-south"},{"id":"cardiff-manager","name":"Cardiff Office Manager","email":"cardiff.manager@heritagehealthcare.co.uk","password":"cardiff123","role":"manager","officeId":"cardiff"}];
-  const offices = [{"id":"north-east","name":"North East"},{"id":"north-tyneside-south-northumberland","name":"North Tyneside & South Northumberland"},{"id":"cheadle-wilmslow","name":"Cheadle & Wilmslow"},{"id":"rochdale","name":"Rochdale"},{"id":"trafford-cheshire","name":"Trafford & Cheshire"},{"id":"barnsley","name":"Barnsley"},{"id":"kirklees","name":"Kirklees"},{"id":"northallerton-richmond-north-yorkshire","name":"Northallerton & Richmond (North Yorkshire)"},{"id":"wakefield","name":"Wakefield"},{"id":"york","name":"York"},{"id":"leicester","name":"Leicester"},{"id":"milton-keynes","name":"Milton Keynes"},{"id":"northampton","name":"Northampton"},{"id":"st-albans-watford","name":"St Albans & Watford"},{"id":"coventry","name":"Coventry"},{"id":"birmingham-south","name":"Birmingham South"},{"id":"windsor","name":"Windsor"},{"id":"bristol","name":"Bristol"},{"id":"basildon","name":"Basildon"},{"id":"ealing-coming-soon","name":"Ealing \u2013 Coming Soon"},{"id":"hounslow-richmond","name":"Hounslow \u2013 Richmond"},{"id":"wandsworth","name":"Wandsworth"},{"id":"cardiff","name":"Cardiff"},{"id":"swansea","name":"Swansea"}];
+  const offices = [{"id":"north-east","name":"North East"},{"id":"north-tyneside-south-northumberland","name":"North Tyneside & South Northumberland"},{"id":"cheadle-wilmslow","name":"Cheadle & Wilmslow"},{"id":"rochdale","name":"Rochdale"},{"id":"trafford-cheshire","name":"Trafford & Cheshire"},{"id":"barnsley","name":"Barnsley"},{"id":"kirklees","name":"Kirklees"},{"id":"northallerton-richmond-north-yorkshire","name":"Northallerton & Richmond (North Yorkshire)"},{"id":"wakefield","name":"Wakefield"},{"id":"york","name":"York"},{"id":"leicester","name":"Leicester"},{"id":"milton-keynes","name":"Milton Keynes"},{"id":"northampton","name":"Northampton"},{"id":"st-albans-watford","name":"St Albans & Watford"},{"id":"coventry","name":"Coventry"},{"id":"birmingham-south","name":"Birmingham South"},{"id":"windsor","name":"Windsor"},{"id":"bristol","name":"Bristol"},{"id":"basildon","name":"Basildon"},{"id":"ealing-coming-soon","name":"Ealing \u2013 Coming Soon"},{"id":"hounslow-richmond","name":"Hounslow \u2013 Richmond"},{"id":"wandsworth","name":"Wandsworth"},{"id":"epsom-ewell-sutton","name":"Epsom and Ewell, Sutton"},{"id":"cardiff","name":"Cardiff"},{"id":"swansea","name":"Swansea"}];
 
   const load = () => {
     const raw = localStorage.getItem(STORAGE);
@@ -24,6 +24,19 @@
   };
   const officeName = id => offices.find(o => o.id === id)?.name || "National Office";
   const moneySafe = s => String(s || "").replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#039;'}[c]));
+
+  const routePostcode = postcode => {
+    const data=window.HERITAGE_POSTCODE_ROUTING;
+    if(!data) return {status:"national",officeId:null,office:null,sector:""};
+    const pc=String(postcode||"").toUpperCase().replace(/[^A-Z0-9 ]/g," ").replace(/\s+/g," ").trim();
+    const m=pc.match(/^([A-Z]{1,2}\d[A-Z\d]?)\s*(\d)(?:[A-Z]{2})?$/);
+    if(!m) return {status:"invalid",officeId:null,office:null,sector:""};
+    const sector=`${m[1]} ${m[2]}`;
+    const matches=Object.entries(data.offices).filter(([,o])=>Array.isArray(o.postcodes)&&o.postcodes.includes(sector));
+    if(matches.length===1){const [id,o]=matches[0];return {status:"local",officeId:id,office:o,sector};}
+    if(matches.length>1)return {status:"ambiguous",officeId:null,office:null,sector,matches};
+    return {status:"national",officeId:null,office:null,sector};
+  };
 
   window.HeritageCRM = {load,save,session,officeName,users,offices,seed};
 
@@ -175,11 +188,14 @@
         e.preventDefault();
         const data=new FormData(form);
         const id="HH-"+new Date().getFullYear()+"-"+String(db.enquiries.length+189).padStart(6,"0");
-        const officeId=current.role==="national"?data.get("officeId"):current.officeId;
+        const route=routePostcode(data.get("postcode"));
+        const officeId=route.status==="local" ? route.officeId : (current.role==="national" ? data.get("officeId") : null);
         db.enquiries.push({
-          id,officeId,sourceOffice:officeName(officeId),name:data.get("name"),email:data.get("email"),
+          id,officeId,sourceOffice:current.role==="national" ? officeName(officeId) : officeName(current.officeId),name:data.get("name"),email:data.get("email"),
           phone:data.get("phone"),person:data.get("person"),postcode:data.get("postcode"),careType:data.get("careType"),
-          message:data.get("message"),status:"new",assignedTo:current.id,createdAt:new Date().toISOString(),notes:[]
+          message:data.get("message"),status:"new",assignedTo:officeId?`${officeId}-manager`:"national-admin",
+          routingStatus:route.status,postcodeSector:route.sector,matchedOffice:route.office?.name || "National Office",
+          createdAt:new Date().toISOString(),notes:[]
         });
         save(db); location.href="crm-enquiry.html?id="+encodeURIComponent(id);
       });
